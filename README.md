@@ -11,12 +11,13 @@ Recompilation:
 ```
 $ make clean && make
 ```
+
 To run the application after compilation:
 ```
 $ ./TCG
 ```
+
 To view the manual, you can use the command 'manual' in the application, or open it with:
 ```
 $ gedit manual.txt
 ```
-TCG runs only on Linux machines.
