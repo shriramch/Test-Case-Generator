@@ -86,3 +86,8 @@ Generator.o : $(HEADER2)
 
 main.o : $(HEADER2)
 	$(CXX) $(CXXFLAGS) -c main.cpp
+
+.PHONY : clean
+clean :
+	rm $(OBJS) $(PROG)
+	
