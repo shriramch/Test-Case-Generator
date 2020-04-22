@@ -206,7 +206,7 @@ void Rkey_darray :: generate(int n, Timer &t1, int l, int r, int k)
 // A function that generates a distinct array with given key element test case files
 void Rkey_darray :: setCase(string &s, int T, int t, int n, int l, int r, int k, int sz, string &folder_name)
 {
-	cout << "Generating darray test files: " << '\n';
+	cout << "Generating key_darray test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
@@ -224,7 +224,7 @@ void Rkey_darray :: setCase(string &s, int T, int t, int n, int l, int r, int k,
 		}
 		fout.close();
 	}
-	cout << "darray generation completed." << '\n';
+	cout << "key_darray generation completed." << '\n';
 }
 
 // A constructor
