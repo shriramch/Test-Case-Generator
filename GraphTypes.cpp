@@ -175,7 +175,7 @@ void Rvwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 // A function that generated weighted graph test case files
 void Rvwgraph :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
-	cout << "Generating wgraph test files: " << '\n';
+	cout << "Generating vwgraph test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
@@ -200,7 +200,7 @@ void Rvwgraph :: setCase(string &s, int T, int t, int n, int l, int r, int sz, s
 		}
 		fout.close();
 	}
-	cout << "wgraph generation completed." << '\n';
+	cout << "vwgraph generation completed." << '\n';
 }
 
 // A constructor
