@@ -8,19 +8,19 @@ USER COMMANDS:
 
 PRESET KEYWORDS:
     1. For preset type, enter the preset name or the preset number.
-    2. Test case file name prefix: all test cases are generated with this prefix followed by the file number.
+    2. Test case file name prefix: all test cases are generated with this prefix followed by the file number. If test files with this name already exist, they will be overwritten.
     3. Enter 0 or 1 for test case size: 0 generates test case of uniformly random size, while 1 generates large test cases with almost the same size as maximum limit.
     4. Distribution Keys are given as follows:
       (a) 0 - random corner case distribution
       (b) 1 - left corner case
       (c) 2 - right corner case
       (d) 3 - uniform integer distribution (valid only for integer presets)
-      (e) 4 - normal distribution (valid only for floating point presets)
-      (f) 5 - gamma distribution (valid only for floating point presets with positive number constraints)
-      (g) 6 - exponential distribution (valid only for floating point presets with positive number constraints)
-      (h) 7 - binomial distribution (valid only for integer presets with positive number contraints)
-      (i) 8 - poisson distribution (valid only for integer presets)
-      (j) 9 - random piecewise linear distribution
+      (e) 4 - normal distribution with randomized parameters (valid only for floating point presets)
+      (f) 5 - gamma distribution with randomized parameters (valid only for floating point presets with positive number constraints)
+      (g) 6 - exponential distribution with randomized parameters (valid only for floating point presets with positive number constraints)
+      (h) 7 - binomial distribution with randomized parameters (valid only for integer presets with positive number contraints)
+      (i) 8 - poisson distribution with randomized parameters (valid only for integer presets)
+      (j) 9 - random piecewise linear distribution with randomized parameters 
     NOTE: It is recommended to give -1 for distribution key whenever explicitly required, since that randomizes the distribution.
     5. Required validity contraints:
       (a) lower bound <= upper bound.
