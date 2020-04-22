@@ -3,12 +3,16 @@ An Object Oriented Algorithms Implementation and Analysis Course Project that ge
 
 TCG is a simple command based test case generator that can be used to create test cases in multiple numbers and generate output files for the same test cases using their solution code.
 
-Installation of the application once it has been cloned:
+Compilation of the application once it has been cloned:
 ```
 $ make
 ```
+Recompilation:
+```
+$ make clean && make
+```
 
-Once the process is completed, you can run the application using:
+To run the application after compilation:
 ```
 $ ./TCG
 ```
