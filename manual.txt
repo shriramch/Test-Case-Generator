@@ -1,0 +1,94 @@
+HOW TO USE THE TEST CASE GENERATOR APPLICATION?
+
+USER COMMANDS:
+    1. 'exit'/'quit'       : Quit the terminal
+    2. 'generate'/'gen'    : Generate tests from a given preset type
+    3. 'clear'             : Clear the screen
+    4. 'manual'            : Open the user manual
+
+PRESET KEYWORDS:
+    1. For preset type, enter the preset name or the preset number.
+    2. Test case file name prefix: all test cases are generated with this prefix followed by the file number.
+    3. Enter 0 or 1 for test case size: 0 generates test case of uniformly random size, while 1 generates large test cases with almost the same size as maximum limit.
+    4. Distribution Keys are given as follows:
+      (a) 0 - random corner case distribution
+      (b) 1 - left corner case
+      (c) 2 - right corner case
+      (d) 3 - uniform integer distribution (valid only for integer presets)
+      (e) 4 - normal distribution (valid only for floating point presets)
+      (f) 5 - gamma distribution (valid only for floating point presets with positive number constraints)
+      (g) 6 - exponential distribution (valid only for floating point presets with positive number constraints)
+      (h) 7 - binomial distribution (valid only for integer presets with positive number contraints)
+      (i) 8 - poisson distribution (valid only for integer presets)
+      (j) 9 - random piecewise linear distribution
+    NOTE: It is recommended to give -1 for distribution key whenever explicitly required, since that randomizes the distribution.
+    5. Required validity contraints:
+      (a) lower bound <= upper bound.
+      (b) for distinct presets, the range of elements should be at least 3 times the required number of elements.
+      (c) Distribution key, size key and any other boolean variable should be either 0 or 1.
+      (d) Character sets for char_string presets must have a set of valid unique characters that do not have ASCII value less than 32.
+      (e) Graph density for dense_graph presets must lie in between 0 and 1 inclusive, or should be -1 for a randomized density.
+      (f) dense_graph presets have a size limit of 2500 nodes.
+      (g) Any string can not be "---" since this is used as an escape sequence in this application.
+
+LIST OF PRESETS:
+    1.  int                : integer
+    2.  float              : floating point number
+    3.  pair               : pair of integers
+    4.  fpair              : pair of floating point numbers
+    5.  array              : array of integers
+    6.  farray             : array of floating point numbers
+    7.  darray             : array of distinct elements
+    8.  key_darray         : array of distinct elements, all having the key element k
+    9.  sarray             : sorted array of integers
+    10. sfarray            : sorted array of floating point numbers
+    11. sdarray            : sorted array of distinct integers
+    12. div_array          : array of distinct elements, all divisible by an element k
+    13. perm               : permutation of given size
+    14. string             : string of lowercase alphabets
+    15. char_string        : string of characters made from a given character set
+    16. 01string           : string of 0s and 1s
+    17. char_pair          : pair of strings of characters made from a given character set
+    18. char_array         : array of strings of characters made from a given character set
+    19. lint               : long integer
+    20. rbseq              : balanced bracket sequence
+    21. matrix             : matrix of integers
+    22. fmatrix            : matrix of floating point numbers
+    23. sqmatrix           : square matrix of integers
+    24. sqfmatrix          : square matrix of floating point numbers
+    25. intervals          : set of intervals
+    26. uintervals         : set of unique intervals
+    27. partition          : partition of a given range
+    28. tree               : tree
+    29. rtree              : tree rooted at node 1
+    30. wtree              : edge-weighted tree
+    31. vwtree             : vertex-weighted tree
+    32. wrtree             : edge-weighted tree rooted at node 1
+    33. dense_graph        : graph with large number of edges
+    34. dense_dgraph       : digraph with large number of edges
+    35. graph              : graph
+    36. wgraph             : edge-weighted graph
+    37. conn_graph         : connected graph
+    38. conn_wgraph        : connected edge-weighted graph
+    39. conn_vwgraph       : connected vertex-weighted graph
+    40. disgraph           : disconnected graph
+    41. diswgraph          : disconnected edge-weighted graph
+    42. disvwgraph         : disconnected vertex-weighted graph
+    43. vwgraph            : vertex-weighted graph
+    44. dgraph             : digraph
+    45. dwgraph            : edge-weighted digraph
+    46. dvwgraph           : vertex-weighted digraph
+    47. dag                : dag
+    48. wdag               : edge-weighted dag
+    49. vwdag              : vertex-weighted dag
+    50. coordinates        : 2-D planar coordinates
+    51. ucoordinates       : 2-D planar unique coordinates
+    52. polynomial         : polynomial with integer coefficients
+    53. fpolynomial        : polynomial with floating point number coefficients
+  NOTE: Floating point numbers by default have a fixed precision of 6 digits after decimal point.
+
+OUTPUT GENERATION:
+    1. Put solution code in same directory as the test case generator executable and test cases.
+    2. Only C++ solutions are currently supported. Enter file name with or without '.cpp' extension.
+    3. Please make sure that the solution does not generate compile time and runtime errors.
+    4. Please make sure that the solution file is not named "---", since this string is used as an escape sequence in the application.
