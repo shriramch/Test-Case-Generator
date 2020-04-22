@@ -29,7 +29,7 @@ PRESET KEYWORDS:
       (d) Character sets for char_string presets must have a set of valid unique characters that do not have ASCII value less than 32.
       (e) Graph density for dense_graph presets must lie in between 0 and 1 inclusive, or should be -1 for a randomized density.
       (f) dense_graph presets have a size limit of 2500 nodes.
-      (g) Any string can not be "---" since this is used as an escape sequence in this application.
+      (g) Any input can not be "---" since this is used as an escape sequence in this application.
 
 LIST OF PRESETS:
     1.  int                : integer
