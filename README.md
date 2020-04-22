@@ -8,7 +8,7 @@ Installation of the application once it has been cloned:
 $ make
 ```
 
-Once the process is completed, you can run the app using:
+Once the process is completed, you can run the application using:
 ```
 $ ./TCG
 ```
