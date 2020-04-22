@@ -45,12 +45,12 @@ string Generate :: giveString(string x)
 {
 	cout << x;
 	string ss;
+	getline(cin, ss);
 	if(ss == "---")
 	{
 		e1.setCaseError(-1);
 		throw e1;
 	}
-	getline(cin, ss);
 	return ss;
 }
 
@@ -110,6 +110,59 @@ void Generate :: initialize()
 	types.insert("ucoordinates");
 	types.insert("polynomial");
 	types.insert("fpolynomial");
+	types.insert("1");
+	types.insert("2");
+	types.insert("3");
+	types.insert("4");
+	types.insert("5");
+	types.insert("6");
+	types.insert("7");
+	types.insert("8");
+	types.insert("9");
+	types.insert("10");
+	types.insert("11");
+	types.insert("12");
+	types.insert("13");
+	types.insert("14");
+	types.insert("15");
+	types.insert("16");
+	types.insert("17");
+	types.insert("18");
+	types.insert("19");
+	types.insert("20");
+	types.insert("21");
+	types.insert("22");
+	types.insert("23");
+	types.insert("24");
+	types.insert("25");
+	types.insert("26");
+	types.insert("27");
+	types.insert("28");
+	types.insert("29");
+	types.insert("30");
+	types.insert("31");
+	types.insert("32");
+	types.insert("33");
+	types.insert("34");
+	types.insert("35");
+	types.insert("36");
+	types.insert("37");
+	types.insert("38");
+	types.insert("39");
+	types.insert("40");
+	types.insert("41");
+	types.insert("42");
+	types.insert("43");
+	types.insert("44");
+	types.insert("45");
+	types.insert("46");
+	types.insert("47");
+	types.insert("48");
+	types.insert("49");
+	types.insert("50");
+	types.insert("51");
+	types.insert("52");
+	types.insert("53");
 }
 
 // A utility function to check validity of input
