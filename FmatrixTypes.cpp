@@ -331,7 +331,7 @@ void Rsqfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 // A function that generates floating point square matrix test case files
 void Rsqfmatrix :: setCase(string &s, int T, int t, int n, float l, float r, int d, bool neg, int sz, string &folder_name)
 {
-	cout << "Generating fmatrix test files: " << '\n';
+	cout << "Generating sqfmatrix test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
@@ -353,7 +353,7 @@ void Rsqfmatrix :: setCase(string &s, int T, int t, int n, float l, float r, int
 		}
 		fout.close();
 	}
-	cout << "fmatrix generation completed." << '\n';
+	cout << "sqfmatrix generation completed." << '\n';
 }
 
 // A function that sets distribution for all test cases
