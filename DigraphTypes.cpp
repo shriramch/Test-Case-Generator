@@ -169,7 +169,7 @@ void Rdvwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 // A function that generates vertex weighted digraph test case files
 void Rdvwgraph :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
-	cout << "Generating dwgraph test files: " << '\n';
+	cout << "Generating dvwgraph test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
@@ -194,7 +194,7 @@ void Rdvwgraph :: setCase(string &s, int T, int t, int n, int l, int r, int sz, 
 		}
 		fout.close();
 	}
-	cout << "dwgraph generation completed." << '\n';
+	cout << "dvwgraph generation completed." << '\n';
 }
 
 // A constructor
