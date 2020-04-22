@@ -72,7 +72,10 @@ Rdwgraph :: Rdwgraph()
 void Rdwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 {
 	uniform_int_distribution <int> distribution(1, n);
-	uniform_int_distribution <int> weights(l, r);
+	vector <int> weights;
+	if(l < 0)
+		Distribution :: FillArray(weights, e, l, r, true, t1);
+	else Distribution :: FillArray(weights, e, l, r, false, t1);
 	m.clear();
 	int gcount = 0;
 	while(gcount != e)
@@ -84,8 +87,7 @@ void Rdwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 			if(m[make_pair(u, v)] == 0)
 			{
 				m[make_pair(u, v)] = 1;
-				int w = weights(generator);
-				fout << u << ' ' << v << ' ' << w << '\n';
+				fout << u << ' ' << v << ' ' << weights[gcount] << '\n';
 				t1.time(1);
 				gcount++;
 			}				
@@ -113,7 +115,7 @@ void Rdwgraph :: setCase(string &s, int T, int t, int n, int l, int r, int sz, s
 			ec.push_back(edge);
 			tcnt += ec[j];
 		}
-		Timer t1(tcnt);
+		Timer t1(2 * tcnt);
 		for(int j = 0; j < N; j++)
 		{
 			fout << times[j] << ' ' << ec[j] << '\n';
@@ -135,11 +137,14 @@ Rdvwgraph :: Rdvwgraph()
 void Rdvwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 {
 	uniform_int_distribution <int> distribution(1, n);
-	uniform_int_distribution <int> weights(l, r);
+	vector <int> weights;
+	if(l < 0)
+		Distribution :: FillArray(weights, n, l, r, true, t1);
+	else Distribution :: FillArray(weights, n, l, r, false, t1);
 	for(int i = 1; i < n + 1; i++)
 	{
 		t1.time(1);
-		fout << weights(generator) << ' ';
+		fout << weights[i - 1] << ' ';
 	}
 	fout << '\n';
 	m.clear();
@@ -179,7 +184,7 @@ void Rdvwgraph :: setCase(string &s, int T, int t, int n, int l, int r, int sz, 
 				times[j]++;
 			int edge = numOp :: giveRint(min((times[j] * times[j] - times[j]), 2 * times[j]));
 			ec.push_back(edge);
-			tcnt += (times[j] + ec[j]);
+			tcnt += (2 * times[j] + ec[j]);
 		}
 		Timer t1(tcnt);
 		for(int j = 0; j < N; j++)
@@ -269,7 +274,10 @@ Rwdag :: Rwdag()
 // A function that genrerates a random weighted dag
 void Rwdag :: generate(int n, Timer &t1, int e, int l, int r)
 {
-	uniform_int_distribution <int> weights(l, r);
+	vector <int> weights;
+	if(l < 0)
+		Distribution :: FillArray(weights, e, l, r, true, t1);
+	else Distribution :: FillArray(weights, e, l, r, false, t1);
 	uniform_int_distribution <int> distribution(1, n);
 	int a[n + 1];
 	for(int i = 1; i < n + 1; i++)
@@ -289,7 +297,7 @@ void Rwdag :: generate(int n, Timer &t1, int e, int l, int r)
 			{
 				m[make_pair(x, y)] = 1;
 				fout << a[x] << ' ' << a[y] << ' ';
-				int w = weights(generator);
+				int w = weights[gcount];
 				fout << w << '\n';
 				t1.time(1);
 				gcount++;
@@ -318,7 +326,7 @@ void Rwdag :: setCase(string &s, int T, int t, int n, int l, int r, int sz, stri
 			ec.push_back(edge);
 			tcnt += ec[j];
 		}
-		Timer t1(tcnt);
+		Timer t1(2 * tcnt);
 		for(int j = 0; j < N; j++)
 		{
 			fout << times[j] << ' ' << ec[j] << '\n';
@@ -339,10 +347,13 @@ Rvwdag :: Rvwdag()
 // A function that generates a random vertex weighted dag
 void Rvwdag :: generate(int n, Timer &t1, int e, int l, int r)
 {
-	uniform_int_distribution <int> weights(l, r);
+	vector <int> weights;
+	if(l < 0)
+		Distribution :: FillArray(weights, n, l, r, true, t1);
+	else Distribution :: FillArray(weights, n, l, r, false, t1);
 	for(int i = 0; i < n; i++)
 	{
-		fout << weights(generator) << ' ';
+		fout << weights[i] << ' ';
 		t1.time(1);
 	}
 	fout << '\n';
@@ -390,7 +401,7 @@ void Rvwdag :: setCase(string &s, int T, int t, int n, int l, int r, int sz, str
 				times[j]++;
 			int edge = numOp :: giveRint(min((times[j] * times[j] - times[j]) / 2, 3 * times[j]) / 2);
 			ec.push_back(edge);
-			tcnt += (times[j] + ec[j]);
+			tcnt += (2 * times[j] + ec[j]);
 		}
 		Timer t1(tcnt);
 		for(int j = 0; j < N; j++)

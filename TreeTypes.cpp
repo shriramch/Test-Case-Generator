@@ -137,7 +137,10 @@ Rwtree :: Rwtree()
 void Rwtree :: generate(int n, Timer &t1, int l, int r)
 {
 	int a[n + 1];
-	uniform_int_distribution <int> distribution(l, r);
+	vector <int> weights;
+	if(l < 0)
+		Distribution :: FillArray(weights, n - 1, l, r, true, t1);
+	else Distribution :: FillArray(weights, n - 1, l, r, false, t1);
 	for(int i = 1; i < n + 1; i++)
 	{
 		t1.time(1);
@@ -151,7 +154,7 @@ void Rwtree :: generate(int n, Timer &t1, int l, int r)
 		uniform_int_distribution <int> d1(1, i - 1);
 		int v = a[d1(generator)];
 		int x = rand() % 2;
-		int w = distribution(generator);
+		int w = weights[i - 2];
 		if(x)
 			g.push_back(make_tuple(u, v, w));
 		else g.push_back(make_tuple(v, u, w));
@@ -180,7 +183,9 @@ void Rwtree :: setCase(string &s, int T, int t, int n, int l, int r, int sz, str
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
-		Timer t1(3 * tcnt);
+		Timer t1(4 * tcnt);
+		for(int j = 0; j < N; j++)
+			t1.time(1);
 		for(int j = 0; j < N; j++)
 		{
 			fout << times[j] << '\n';
@@ -202,7 +207,10 @@ Rvwtree :: Rvwtree()
 void Rvwtree :: generate(int n, Timer &t1, int l, int r)
 {
 	int a[n + 1];
-	uniform_int_distribution <int> distribution(l, r);
+	vector <int> weights;
+	if(l < 0)
+		Distribution :: FillArray(weights, n, l, r, true, t1);
+	else Distribution :: FillArray(weights, n, l, r, false, t1);
 	for(int i = 1; i < n + 1; i++)
 	{
 		t1.time(1);
@@ -211,7 +219,7 @@ void Rvwtree :: generate(int n, Timer &t1, int l, int r)
 	for(int i = 1; i < n + 1; i++)
 	{
 		t1.time(1);
-		fout << distribution(generator) << ' ';
+		fout << weights[i - 1] << ' ';
 	}
 	fout << '\n';
 	shuffle(a + 1, a + n + 1, default_random_engine(system_clock  :: now().time_since_epoch().count()));
@@ -250,7 +258,7 @@ void Rvwtree :: setCase(string &s, int T, int t, int n, int l, int r, int sz, st
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
-		Timer t1(4 * tcnt);
+		Timer t1(5 * tcnt);
 		for(int j = 0; j < N; j++)
 		{
 			fout << times[j] << '\n';
@@ -272,7 +280,10 @@ Rrwtree :: Rrwtree()
 void Rrwtree :: generate(int n, Timer &t1, int l, int r)
 {
 	int a[n + 1];
-	uniform_int_distribution <int> distribution(l, r);
+	vector <int> weights;
+	if(l < 0)
+		Distribution :: FillArray(weights, n - 1, l, r, true, t1);
+	else Distribution :: FillArray(weights, n - 1, l, r, false, t1);
 	for(int i = 1; i < n + 1; i++)
 	{
 		t1.time(1);
@@ -286,7 +297,7 @@ void Rrwtree :: generate(int n, Timer &t1, int l, int r)
 		uniform_int_distribution <int> d1(1, i - 1);
 		int v = a[d1(generator)];
 		int x = rand() % 2;
-		int w = distribution(generator);
+		int w = weights[i - 2];
 		if(x)
 			g.push_back(make_tuple(u, v, w));
 		else g.push_back(make_tuple(v, u, w));
@@ -315,7 +326,9 @@ void Rrwtree :: setCase(string &s, int T, int t, int n, int l, int r, int sz, st
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
-		Timer t1(3 * tcnt);
+		Timer t1(4 * tcnt);
+		for(int j = 0; j < N; j++)
+			t1.time(1);
 		for(int j = 0; j < N; j++)
 		{
 			fout << times[j] << '\n';

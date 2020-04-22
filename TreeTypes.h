@@ -4,6 +4,7 @@
 # include "numOp.h"
 # include "Timer.h"
 # include "FileOp.h"
+# include "Distribution.h"
 
 // A class that generates tree test cases
 class Rtree

@@ -20,6 +20,7 @@
 # include <sys/types.h> 
 # include <thread>
 # include <vector>
+# include "Timer.h"
 
 # define int long long
 # define float long double
@@ -31,14 +32,15 @@ using namespace std :: chrono;
 class Distribution
 {
 	default_random_engine gen;
-	discrete_distribution <int> idist {7, 1, 1, 21, 0, 0, 0, 35, 35, 21};
-	discrete_distribution <int> fdist {7, 1, 1, 21, 35, 21, 35, 0, 0, 21};
-	discrete_distribution <int> indist {7, 1, 1, 28, 0, 0, 0, 0, 42, 28};
-	discrete_distribution <int> fndist {7, 1, 1, 35, 49, 0, 0, 0, 0, 35};
+	discrete_distribution <int> idist {19, 2, 2, 42, 0, 0, 0, 35, 35, 21};
+	discrete_distribution <int> fdist {19, 2, 2, 42, 35, 21, 35, 0, 0, 21};
+	discrete_distribution <int> indist {19, 2, 2, 49, 0, 0, 0, 0, 0, 49};
+	discrete_distribution <int> fndist {19, 2, 2, 49, 49, 0, 0, 0, 0, 35};
 public:
 	Distribution();
 	void setCaseDis(int, int, vector <int>&, int, bool);	
 	void setCaseDis(int, int, vector <int>&, float, bool);
+	static void FillArray(vector <int> &, int, int, int, bool, Timer &);
 };
 
 # endif

@@ -6,7 +6,7 @@ Rdensegraph :: Rdensegraph()
 	N = 0;
 	generator.seed(system_clock :: now().time_since_epoch().count());
 }
-
+//////
 // A function that generates a random dense graph
 void Rdensegraph :: generate(int n, Timer &t1, int d, float ro)
 {

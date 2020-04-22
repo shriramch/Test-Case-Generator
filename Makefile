@@ -8,7 +8,6 @@ OBJS = numOp.o Invalid.o Timer.o FileOp.o Distribution.o IntTypes.o FloatTypes.o
 HEADER2 = numOp.h Invalid.h Timer.h FileOp.h Distribution.h IntTypes.h FloatTypes.h ArrayTypes.h FarrayTypes.h SarrayTypes.h Perm.h String.h chStringTypes.h spString.h IntervalTypes.h MatrixTypes.h FmatrixTypes.h TreeTypes.h DenseGraph.h GraphTypes.h DigraphTypes.h Coordinates.h Polynomial.h Generator.h
 HEADER1 = numOp.h Invalid.h Timer.h FileOp.h Distribution.h
 
-
 $(PROG) : $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(PROG) $(OBJS)
 
@@ -89,5 +88,5 @@ main.o : $(HEADER2)
 
 .PHONY : clean
 clean :
-	rm $(OBJS) $(PROG)
-	
+	-rm $(OBJS) $(PROG)
+

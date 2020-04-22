@@ -74,7 +74,10 @@ Rwgraph :: Rwgraph()
 void Rwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 {
 	uniform_int_distribution <int> distribution(1, n);
-	uniform_int_distribution <int> weights(l, r);
+	vector <int> weights;
+	if(l < 0)
+		Distribution :: FillArray(weights, e, l, r, true, t1);
+	else Distribution :: FillArray(weights, e, l, r, false, t1);
 	m.clear();
 	int gcount = 0;
 	while(gcount != e)
@@ -88,8 +91,7 @@ void Rwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 			if(m[make_pair(x, y)] == 0)
 			{
 				m[make_pair(x, y)] = 1;
-				int w = weights(generator);
-				fout << u << ' ' << v << ' ' << w << '\n';
+				fout << u << ' ' << v << ' ' << weights[gcount] << '\n';
 				t1.time(1);
 				gcount++;
 			}				
@@ -115,7 +117,7 @@ void Rwgraph :: setCase(string &s, int T, int t, int n, int l, int r, int sz, st
 				times[j]++;
 			int edge = numOp :: giveRint(min((times[j] * times[j] - times[j]) / 2, 2 * times[j]));
 			ec.push_back(edge);
-			tcnt += ec[j];
+			tcnt += (2 * ec[j]);
 		}
 		Timer t1(tcnt);
 		for(int j = 0; j < N; j++)
@@ -139,13 +141,16 @@ Rvwgraph :: Rvwgraph()
 void Rvwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 {
 	uniform_int_distribution <int> distribution(1, n);
-	uniform_int_distribution <int> weights(l, r);
 	m.clear();
+	vector <int> weights;
+	if(l < 0)
+		Distribution :: FillArray(weights, n, l, r, true, t1);
+	else Distribution :: FillArray(weights, n, l, r, false, t1);
 	int gcount = 0;
 	for(int i = 1; i < n + 1; i++)
 	{
 		t1.time(1);
-		fout << weights(generator) << ' ';
+		fout << weights[i - 1] << ' ';
 	}
 	fout << '\n';
 	while(gcount != e)
@@ -185,7 +190,7 @@ void Rvwgraph :: setCase(string &s, int T, int t, int n, int l, int r, int sz, s
 				times[j]++;
 			int edge = numOp :: giveRint(min((times[j] * times[j] - times[j]) / 2, 2 * times[j]));
 			ec.push_back(edge);
-			tcnt += (times[j] + ec[j]);
+			tcnt += (2 * times[j] + ec[j]);
 		}
 		Timer t1(tcnt);
 		for(int j = 0; j < N; j++)
@@ -289,7 +294,10 @@ Rconnwgraph :: Rconnwgraph()
 // A class that generates a connected weighted graph
 void Rconnwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 {
-	uniform_int_distribution <int> weights(l, r);
+	vector <int> weights;
+	if(l < 0)
+		Distribution :: FillArray(weights, e, l, r, true, t1);
+	else Distribution :: FillArray(weights, e, l, r, false, t1);
 	uniform_int_distribution <int> distribution(1, n);
 	m.clear();
 	edlist.clear();
@@ -300,8 +308,7 @@ void Rconnwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 	for(int i = 2; i < n + 1; i++)
 	{
 		int p = 1 + rand() % (i - 1);
-		int w = weights(generator);
-		edlist.push_back(make_tuple(a[i], a[p], w));
+		edlist.push_back(make_tuple(a[i], a[p], weights[i - 2]));
 		m[make_pair(min(a[i], a[p]), max(a[i], a[p]))] = 1;
 		t1.time(1);
 	}
@@ -317,8 +324,7 @@ void Rconnwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 			if(m[make_pair(x, y)] == 0)
 			{
 				m[make_pair(x, y)] = 1;
-				int w = weights(generator);
-				edlist.push_back(make_tuple(u, v, w));
+				edlist.push_back(make_tuple(u, v, weights[gcount]));
 				t1.time(1);
 				gcount++;
 			}				
@@ -352,7 +358,7 @@ void Rconnwgraph :: setCase(string &s, int T, int t, int n, int l, int r, int sz
 			ec.push_back(edge);
 			tcnt += ec[j];
 		}
-		Timer t1(2 * tcnt);
+		Timer t1(3 * tcnt);
 		for(int j = 0; j < N; j++)
 		{
 			fout << times[j] << ' ' << ec[j] << '\n';
@@ -373,7 +379,6 @@ Rconnvwgraph :: Rconnvwgraph()
 // A class that generates a connected vertex weighted graph
 void Rconnvwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 {
-	uniform_int_distribution <int> weights(l, r);
 	uniform_int_distribution <int> distribution(1, n);
 	m.clear();
 	edlist.clear();
@@ -381,9 +386,13 @@ void Rconnvwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 	for(int i = 1; i < n + 1; i++)
 		a[i] = i;
 	shuffle(a + 1, a + n + 1, default_random_engine(system_clock  :: now().time_since_epoch().count()));
+	vector <int> weights;
+	if(l < 0)
+		Distribution :: FillArray(weights, n, l, r, true, t1);
+	else Distribution :: FillArray(weights, n, l, r, false, t1);
 	for(int i = 1; i < n + 1; i++)
 	{
-		fout << weights(generator) << ' ';
+		fout << weights[i - 1] << ' ';
 		t1.time(1);
 	}
 	fout << '\n';
@@ -438,7 +447,7 @@ void Rconnvwgraph :: setCase(string &s, int T, int t, int n, int l, int r, int s
 				times[j]++;
 			int edge = numOp :: giveRint(min((times[j] * times[j] - times[j]) / 2, 2 * times[j]));
 			ec.push_back(edge);
-			tcnt += (times[j] + 2 * ec[j]);
+			tcnt += (2 * times[j] + 2 * ec[j]);
 		}
 		Timer t1(tcnt);
 		for(int j = 0; j < N; j++)
@@ -517,7 +526,7 @@ void Rdisgraph :: setCase(string &s, int T, int t, int n, int sz, string &folder
 		vector <vector <int> > ec(N); 
 		for(int j = 0; j < N; j++)
 		{
-			binomial_distribution <int> noc(times[j], 0.31);
+			binomial_distribution <int> noc(times[j], 0.1);
 			int nocc = noc(generator);
 			set <int> bp;
 			uniform_int_distribution <int> el(1, times[j]);
@@ -559,7 +568,6 @@ Rdiswgraph :: Rdiswgraph()
 // A function that generates a random edge-weighted disconnected graph
 void Rdiswgraph :: generate(int n, vector <pair <int, int> > &inter, Timer &t1, vector <int> &e, int l, int r)
 {
-	uniform_int_distribution <int> weights(l, r);
 	m.clear();
 	edlist.clear();
 	int a[n + 1];
@@ -568,6 +576,10 @@ void Rdiswgraph :: generate(int n, vector <pair <int, int> > &inter, Timer &t1, 
 	shuffle(a + 1, a + n + 1, default_random_engine(system_clock  :: now().time_since_epoch().count()));
 	for(int i = 0; i < (int)inter.size(); i++)
 	{
+		vector <int> weights;
+		if(l < 0)
+			Distribution :: FillArray(weights, e[i], l, r, true, t1);
+		else Distribution :: FillArray(weights, e[i], l, r, false, t1);
 		uniform_int_distribution <int> ed(inter[i].first, inter[i].second);
 		int gcount = 0;
 		while(gcount != e[i])
@@ -580,9 +592,8 @@ void Rdiswgraph :: generate(int n, vector <pair <int, int> > &inter, Timer &t1, 
 				int y = max(u, v);
 				if(m[make_pair(x, y)] == 0)
 				{
-					int w = weights(generator);
 					m[make_pair(x, y)] = 1;
-					edlist.push_back(make_tuple(u, v, w));
+					edlist.push_back(make_tuple(u, v, weights[gcount]));
 					t1.time(1);
 					gcount++;
 				}
@@ -619,7 +630,7 @@ void Rdiswgraph :: setCase(string &s, int T, int t, int n, int wl, int wr, int s
 		{
 			if(times[j] == 1)
 				times[j]++;
-			binomial_distribution <int> noc(times[j], 0.31);
+			binomial_distribution <int> noc(times[j], 0.07);
 			int nocc = noc(generator);
 			set <int> bp;
 			uniform_int_distribution <int> el(1, times[j]);
@@ -643,7 +654,7 @@ void Rdiswgraph :: setCase(string &s, int T, int t, int n, int wl, int wr, int s
 				tcnt += *ec[j].rbegin();
 			}
 		}
-		Timer t1(2 * tcnt);
+		Timer t1(3 * tcnt);
 		for(int j = 0 ; j < N; j++)
 			generate(times[j], inter[j], t1, ec[j], wl, wr);
 		fout.close();
@@ -661,10 +672,10 @@ Rdisvwgraph :: Rdisvwgraph()
 // A function that generates a random vertex weighted disconnected graph
 void Rdisvwgraph :: generate(int n, vector <pair <int, int> > &inter, Timer &t1, vector <int> &e, int l, int r)
 {
-	uniform_int_distribution <int> weights(l, r);
-	for(int i = 1; i < n + 1; i++)
-		fout << weights(generator) << ' ';
-	cout << '\n';
+	vector <int> weights;
+	if(l < 0)
+		Distribution :: FillArray(weights, n, l, r, true, t1);
+	else Distribution :: FillArray(weights, n, l, r, false, t1);
 	m.clear();
 	edlist.clear();
 	int a[n + 1];
@@ -695,6 +706,9 @@ void Rdisvwgraph :: generate(int n, vector <pair <int, int> > &inter, Timer &t1,
 	}
 	shuffle(edlist.begin(), edlist.end(), default_random_engine(system_clock  :: now().time_since_epoch().count()));
 	fout << n << ' ';
+	for(int i = 1; i < n + 1; i++)
+		fout << weights[i - 1] << ' ';
+	fout << '\n';
 	int ted = 0;
 	for(int i = 0; i < (int)e.size(); i++)
 		ted += e[i];
@@ -723,7 +737,7 @@ void Rdisvwgraph :: setCase(string &s, int T, int t, int n, int wl, int wr, int 
 		{
 			if(times[j] == 1)
 				times[j]++;
-			binomial_distribution <int> noc(times[j], 0.31);
+			binomial_distribution <int> noc(times[j], 0.07);
 			int nocc = noc(generator);
 			set <int> bp;
 			uniform_int_distribution <int> el(1, times[j]);
@@ -744,10 +758,13 @@ void Rdisvwgraph :: setCase(string &s, int T, int t, int n, int wl, int wr, int 
 			{
 				int v = k.second - k.first + 1;
 				ec[j].push_back(numOp :: giveRint(min(2 * v, (v * v - v) / 2)));
-				tcnt += *ec[j].rbegin();
+				tcnt += ec[j][(int)ec[j].size() - 1];
 			}
 		}
-		Timer t1(2 * tcnt);
+		tcnt *= 2;
+		for(int j = 0; j < N; j++)
+			tcnt += times[j];
+		Timer t1(tcnt);
 		for(int j = 0 ; j < N; j++)
 			generate(times[j], inter[j], t1, ec[j], wl, wr);
 		fout.close();
