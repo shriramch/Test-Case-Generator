@@ -87,6 +87,16 @@ void Distribution :: FillArray(vector <int> &values, int n, int l, int r, bool n
 		int d;
 		if(r - l < 4)
 			d = 3;
+		else if(r - l < 50)
+		{
+			d = idist(gen);
+			if(d != 3)
+			{
+				int x = rand() % 7;
+				if(x != 0)
+					d = 3;
+			}
+		}
 		else d = idist(gen);
 		if(d == 0)
 		{
