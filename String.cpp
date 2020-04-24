@@ -10,11 +10,11 @@ Rstring :: Rstring()
 // A function that generates a random string
 void Rstring :: generate(int n, Timer &t1)
 {
-	uniform_int_distribution <int> distribution(97, 122);
+	vector <int> chars;
+	Distribution :: FillArray(chars, n, 97, 122, false, t1);
 	for(int i = 0; i < n; i++)
-	{
-		int c = distribution(generator);
-		fout << (char)c;
+	{;
+		fout << (char)chars[i];
 		t1.time(1);
 	}
 	fout << '\n';
@@ -33,7 +33,7 @@ void Rstring :: setCase(string &s, int T, int t, int n, int v, int sz, string &f
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
-		Timer t1(tcnt);
+		Timer t1(2 * tcnt);
 		for(int j = 0; j < N; j++)
 		{
 			if(v)

@@ -79,12 +79,15 @@ void Distribution :: setCaseDis(int n, int d, vector <int> &dist, float t1, bool
 
 void Distribution :: FillArray(vector <int> &values, int n, int l, int r, bool neg, Timer &t1)
 {
-	discrete_distribution <int> idist {19, 2, 2, 42, 0, 0, 0, 35, 35, 21};
-	discrete_distribution <int> indist {19, 2, 2, 49, 0, 0, 0, 0, 0, 49};
+	discrete_distribution <int> idist {13, 1, 1, 42, 0, 0, 0, 35, 35, 21};
+	discrete_distribution <int> indist {13, 1, 1, 49, 0, 0, 0, 0, 0, 49};
 	default_random_engine gen(system_clock :: now().time_since_epoch().count());
 	if(neg == false)
 	{
-		int d = idist(gen);
+		int d;
+		if(r - l < 4)
+			d = 3;
+		else d = idist(gen);
 		if(d == 0)
 		{
 			uniform_int_distribution <int> distribution(l, r);
@@ -137,7 +140,8 @@ void Distribution :: FillArray(vector <int> &values, int n, int l, int r, bool n
 		else if(d == 8)
 		{
 			uniform_real_distribution <float> d1(l, r);
-			poisson_distribution <int> distribution(d);
+			int mean = d1(gen);
+			poisson_distribution <int> distribution(mean);
 			for(int i = 0; i < n; i++)
 			{
 				int g = distribution(gen);

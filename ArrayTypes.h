@@ -33,7 +33,7 @@ public:
 	void setCase(string&, int, int, int, int, int, int, string&);
 };
 
-// A class that generates distinct arrays containing a given key element test cases
+// A function that generates distinct arrays containing a given key element test cases
 class Rkey_darray
 {
 	int N;

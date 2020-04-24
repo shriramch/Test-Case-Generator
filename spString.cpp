@@ -10,14 +10,14 @@ Rlint :: Rlint()
 // A function that generates a random long integer
 void Rlint :: generate(int n, Timer &t1)
 {
-	uniform_int_distribution <int> distribution(0, 9);
-	int c = distribution(generator);
+	int c = rand();
 	fout << 1 + c % 9;
-	t1.time(1);
+	t1.time(2);
+	vector <int> chars;
+	Distribution :: FillArray(chars, n - 1, 0, 9, false, t1);
 	for(int i = 1; i < n; i++)
 	{
-		c = distribution(generator);
-		fout << c;
+		fout << chars[i - 1];
 		t1.time(1);
 	}
 	fout << '\n';
@@ -36,7 +36,7 @@ void Rlint :: setCase(string &s, int T, int t, int n, int v, int sz, string &fol
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
-		Timer t1(tcnt);
+		Timer t1(2 * tcnt);
 		for(int j = 0; j < N; j++)
 		{
 			if(v)

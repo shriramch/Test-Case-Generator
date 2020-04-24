@@ -4,6 +4,7 @@
 # include "numOp.h"
 # include "Timer.h"
 # include "FileOp.h"
+# include "Distribution.h"
 
 // A function that generates long integer test cases
 class Rlint

@@ -21,4 +21,3 @@ To view the manual, you can use the command 'manual' in the application, or open
 ```
 $ gedit manual.txt
 ```
-TCG runs only on Linux and iOS machines, and is not compatible with Windows.

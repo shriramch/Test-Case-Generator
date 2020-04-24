@@ -90,6 +90,5 @@ LIST OF PRESETS:
 OUTPUT GENERATION:
     1. Put solution code in same directory as the test case generator executable and test cases.
     2. Only C++ solutions are currently supported. Enter file name with or without '.cpp' extension.
-    3. The solution should read input from STDIN and print output to STDOUT.
-    4. Please make sure that the solution does not generate compile time and runtime errors.
-    5. Please make sure that the solution file is not named "---", since this string is used as an escape sequence in the application.
+    3. Please make sure that the solution does not generate compile time and runtime errors.
+    4. Please make sure that the solution file is not named "---", since this string is used as an escape sequence in the application.
