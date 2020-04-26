@@ -21,4 +21,4 @@ To view the manual, you can use the command 'manual' in the application, or open
 ```
 $ gedit manual.txt
 ```
-TCG works only on Linux and OS machines, and does not have Windows support.
+TCG works only on Linux and macOS machines, and does not have Windows support.
