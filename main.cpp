@@ -33,14 +33,17 @@ signed main()
 					wrong_count++;
 					cout << "Invalid command, extra words detected." << '\n';
 				}
-				cout << "Are you sure you want to quit? (y/n) ";
-				string choice;
-				wrong_count = 0;
-				getline(cin, choice);
-				if(choice == "y")
+				else
 				{
-					cout << '\n' << '\n';
-					break;
+					cout << "Are you sure you want to quit? (y/n) ";
+					string choice;
+					wrong_count = 0;
+					getline(cin, choice);
+					if(choice == "y")
+					{
+						cout << '\n' << '\n';
+						break;
+					}
 				}
 			}
 			else
@@ -62,14 +65,17 @@ signed main()
 					wrong_count++;
 					cout << "Invalid command, extra words detected." << '\n';
 				}
-				cout << "Are you sure you want to quit? (y/n) ";
-				string choice;
-				wrong_count = 0;
-				getline(cin, choice);
-				if(choice == "y")
+				else
 				{
-					cout << '\n' << '\n';
-					break;
+					cout << "Are you sure you want to exit? (y/n) ";
+					string choice;
+					wrong_count = 0;
+					getline(cin, choice);
+					if(choice == "y")
+					{
+						cout << '\n' << '\n';
+						break;
+					}
 				}
 			}
 			else
