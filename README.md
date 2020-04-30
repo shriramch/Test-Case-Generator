@@ -22,3 +22,9 @@ To view the manual, you can use the command 'manual' in the application, or open
 $ gedit manual.txt
 ```
 TCG works only on Linux and macOS machines, and does not have Windows support.
+
+# Features
+- Text-based UI having simple user friendly commands to power basic operations along with generation, e.g. exit, open manual, clear screen, etc.
+- Generation of multiple test case files and multiple test cases of various size and distribution in a single file based on multiple paramters, together with generation of output files from C++ solution code.
+- Generated test and output files stored in a single folder.
+- Progress displayed at file level for generation of test cases of all size and for output files.
