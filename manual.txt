@@ -32,10 +32,13 @@ PRESET KEYWORDS:
       (g) Any string can not be "---" since this is used as an escape sequence in this application.
 
 LIST OF PRESETS:
+    Integer types
     1.  int                : integer
     2.  float              : floating point number
     3.  pair               : pair of integers
     4.  fpair              : pair of floating point numbers
+    
+    Array types
     5.  array              : array of integers
     6.  farray             : array of floating point numbers
     7.  darray             : array of distinct elements
@@ -44,26 +47,36 @@ LIST OF PRESETS:
     10. sfarray            : sorted array of floating point numbers
     11. sdarray            : sorted array of distinct integers
     12. div_array          : array of distinct elements, all divisible by an element k
-    13. perm               : permutation of given size
+    13. perm               : permutation of given size    
+    
+    String types
     14. string             : string of lowercase alphabets
     15. char_string        : string of characters made from a given character set
     16. 01string           : string of 0s and 1s
     17. char_pair          : pair of strings of characters made from a given character set
     18. char_array         : array of strings of characters made from a given character set
     19. lint               : long integer
-    20. rbseq              : balanced bracket sequence
+    20. rbseq              : balanced bracket sequence    
+    
+    Matrix types
     21. matrix             : matrix of integers
     22. fmatrix            : matrix of floating point numbers
     23. sqmatrix           : square matrix of integers
     24. sqfmatrix          : square matrix of floating point numbers
+        
+    Interval types
     25. intervals          : set of intervals
     26. uintervals         : set of unique intervals
     27. partition          : partition of a given range
+    
+    Tree Types
     28. tree               : tree
     29. rtree              : tree rooted at node 1
     30. wtree              : edge-weighted tree
     31. vwtree             : vertex-weighted tree
     32. wrtree             : edge-weighted tree rooted at node 1
+    
+    Graph Types
     33. dense_graph        : graph with large number of edges
     34. dense_dgraph       : digraph with large number of edges
     35. graph              : graph
@@ -81,10 +94,15 @@ LIST OF PRESETS:
     47. dag                : dag
     48. wdag               : edge-weighted dag
     49. vwdag              : vertex-weighted dag
+
+    Coordinates Types
     50. coordinates        : 2-D planar coordinates
     51. ucoordinates       : 2-D planar unique coordinates
+    
+    Polynomial Types
     52. polynomial         : polynomial with integer coefficients
     53. fpolynomial        : polynomial with floating point number coefficients
+
   NOTE: Floating point numbers by default have a fixed precision of 6 digits after decimal point.
 
 OUTPUT GENERATION:
