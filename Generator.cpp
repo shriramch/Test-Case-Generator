@@ -110,6 +110,8 @@ void Generate :: initialize()
 	types.insert("ucoordinates");
 	types.insert("polynomial");
 	types.insert("fpolynomial");
+	types.insert("tuple");
+	types.insert("tuple_array");
 	types.insert("1");
 	types.insert("2");
 	types.insert("3");
@@ -163,6 +165,8 @@ void Generate :: initialize()
 	types.insert("51");
 	types.insert("52");
 	types.insert("53");
+	types.insert("101");
+	types.insert("102");
 }
 
 // A utility function to check validity of input
@@ -953,6 +957,34 @@ void Generate :: genfunc()
 		valid(d);
 		Rfpolynomial R;
 		R.setCase(fname, T, t, n, l, r, sz, d, folder_name);
+	}
+	else if(ptype == "tuple" || ptype == "101")
+	{
+		int nc = giveInt("	Number of elements in a tuple: ");
+		vector <int> l(nc), r(nc);
+		for(int i = 0; i < nc; i++)
+		{
+			l[i] = giveInt("	Lower limit for term " + numOp :: nts(i + 1) + ": ");
+			r[i] = giveInt("	Upper limit for term " + numOp :: nts(i + 1) + ": ");
+			valid(l[i], r[i]);
+		}
+		Rtuple R;
+		R.setCase(fname, T, t, nc, l, r, folder_name);
+	}
+	else if(ptype == "tuple_array" || ptype == "102")
+	{
+		int nc = giveInt("	Number of elements in a tuple: ");
+		int n = giveInt("	Number of tuples (over all test cases): ");
+		vector <int> l(nc), r(nc);
+		for(int i = 0; i < nc; i++)
+		{
+			l[i] = giveInt("	Lower limit for term " + numOp :: nts(i + 1) + ": ");
+			r[i] = giveInt("	Upper limit for term " + numOp :: nts(i + 1) + ": ");
+			valid(l[i], r[i]);
+		}
+		int d = giveInt("	Distribution key (-1 for randomized): ");
+		RtupleArray R;
+		R.setCase(fname, T, t, nc, n, l, r, d, sz, folder_name);
 	}
 	cout << '\n' << '\n' << "Do you want to create output files? (y/n) ";
 	string c;

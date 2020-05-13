@@ -54,5 +54,4 @@ public:
 	void setCase(string&, int, int, int, string, int, int, string&);
 };
 
-
 # endif

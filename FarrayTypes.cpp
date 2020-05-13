@@ -18,7 +18,7 @@ void Rfarray :: generate(int n, int d, Timer &t1, float l, float r)
 		g = distribution(generator);
 		for(int i = 0; i < n; i++)
 		{
-			fout << g << ' ';
+			fout << g << " \n"[i == n - 1];
 			t1.time(1);
 		}
 	}
@@ -27,7 +27,7 @@ void Rfarray :: generate(int n, int d, Timer &t1, float l, float r)
 		g = l;
 		for(int i = 0; i < n; i++)
 		{
-			fout << g << ' ';
+			fout << g << " \n"[i == n - 1];
 			t1.time(1);
 		}
 	}
@@ -36,7 +36,7 @@ void Rfarray :: generate(int n, int d, Timer &t1, float l, float r)
 		g = r;
 		for(int i = 0; i < n; i++)
 		{
-			fout << g << ' ';
+			fout << g << " \n"[i == n - 1];
 			t1.time(1);
 		}
 	}
@@ -46,7 +46,7 @@ void Rfarray :: generate(int n, int d, Timer &t1, float l, float r)
 		for(int i = 0; i < n; i++)
 		{
 			g = distribution(generator);
-			fout << g << ' ';
+			fout << g << " \n"[i == n - 1];
 			t1.time(1);
 		}
 	}
@@ -59,7 +59,7 @@ void Rfarray :: generate(int n, int d, Timer &t1, float l, float r)
 		for(int i = 0; i < n; i++)
 		{
 			g = distribution(generator);
-			fout << l + fmod(g, (r - l + 1)) << ' ';
+			fout << l + fmod(g, (r - l + 1)) << " \n"[i == n - 1];
 			t1.time(1);
 		}
 	}
@@ -72,7 +72,7 @@ void Rfarray :: generate(int n, int d, Timer &t1, float l, float r)
 		for(int i = 0; i < n; i++)
 		{
 			g = distribution(generator);
-			fout << l + fmod(g, (r - l + 1))<< ' ';
+			fout << l + fmod(g, (r - l + 1))<< " \n"[i == n - 1];
 			t1.time(1);
 		}
 	}
@@ -84,7 +84,7 @@ void Rfarray :: generate(int n, int d, Timer &t1, float l, float r)
 		for(int i = 0; i < n; i++)
 		{
 			g = distribution(generator);
-			fout << l + fmod(g, (r - l + 1)) << ' ';
+			fout << l + fmod(g, (r - l + 1)) << " \n"[i == n - 1];
 			t1.time(1);
 		}
 	}
@@ -98,11 +98,10 @@ void Rfarray :: generate(int n, int d, Timer &t1, float l, float r)
 		for(int i = 0; i < n; i++)
 		{
 			g = distribution(generator);
-			fout << g << ' ';
+			fout << g << " \n"[i == n - 1];
 			t1.time(1);
 		}
 	}
-	fout << '\n';
 }
 
 // A function that generates floating point array test case files
@@ -266,10 +265,9 @@ void Rsfarray :: setCase(string &s, int T, int t, int n, float l, float r, int d
 			sort(g.begin(), g.end());
 			for(int k = 0; k < (int)g.size(); k++)
 			{
-				fout << g[k] << ' ';
+				fout << g[k] << " \n"[i == n - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 		fout.close();
 	}

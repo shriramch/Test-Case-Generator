@@ -104,7 +104,6 @@ void Rcoordinates :: generate(int n, int d, Timer &t1, int l1, int r1, int l2, i
 			t1.time(1);
 		}
 	}
-	fout << '\n';
 }
 
 // A function that generates coordinate test case files
@@ -174,7 +173,6 @@ void Rucoordinates :: generate(int n, Timer &t1, int l1, int r1, int l2, int r2)
 			fout << rn << '\n';
 		}
 	}
-	fout << '\n';
 }
 
 // A function that generates unique coordinate test case files

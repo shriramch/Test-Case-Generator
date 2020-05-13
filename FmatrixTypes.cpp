@@ -19,10 +19,9 @@ void Rfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 		{
 			for(int j = 0; j < m; j++)
 			{
-				fout << g << ' ';
+				fout << g << " \n"[j == m - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	}
 	else if(d == 1)
@@ -32,10 +31,9 @@ void Rfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 		{
 			for(int j = 0; j < m; j++)
 			{
-				fout << g << ' ';
+				fout << g << " \n"[j == m - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	}
 	else if(d == 2)
@@ -45,10 +43,9 @@ void Rfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 		{
 			for(int j = 0 ; j < m; j++)
 			{
-				fout << g << ' ';
+				fout << g << " \n"[j == m - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	}
 	else if(d == 3)
@@ -59,10 +56,9 @@ void Rfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 			for(int j = 0; j < m; j++)
 			{
 				g = distribution(generator);
-				fout << g << ' ';
+				fout << g << " \n"[j == m - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	}
 	else if(d == 4)
@@ -76,10 +72,9 @@ void Rfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 			for(int j = 0; j < m; j++)
 			{
 				g = distribution(generator);
-				fout << l + fmod(r - l + 1 + g, (r - l + 1)) << ' ';
+				fout << l + fmod(r - l + 1 + g, (r - l + 1)) << " \n"[j == m - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	}
 	else if(d == 5)
@@ -93,10 +88,9 @@ void Rfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 			for(int j = 0; j < m; j++)
 			{
 				g = distribution(generator);
-				fout << l + fmod(r - l + 1 + g, (r - l + 1))<< ' ';
+				fout << l + fmod(r - l + 1 + g, (r - l + 1))<< " \n"[j == m - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	}
 	else if(d == 6)
@@ -109,10 +103,9 @@ void Rfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 			for(int j = 0; j < m; j++)
 			{
 				g = distribution(generator);
-				fout << l + fmod(r - l + 1 + g, (r - l + 1)) << ' ';
+				fout << l + fmod(r - l + 1 + g, (r - l + 1)) << " \n"[j == m - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	}
 	else if(d == 9)
@@ -127,10 +120,9 @@ void Rfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 			for(int j = 0; j < m; j++)
 			{
 				g = distribution(generator);
-				fout << g << ' ';
+				fout << g << " \n"[j == m - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	}
 }
@@ -212,10 +204,9 @@ void Rsqfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 		{
 			for(int j = 0; j < m; j++)
 			{
-				fout << g << ' ';
+				fout << g << " \n"[j == m - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	}
 	else if(d == 1)
@@ -225,10 +216,9 @@ void Rsqfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 		{
 			for(int j = 0; j < m; j++)
 			{
-				fout << g << ' ';
+				fout << g << " \n"[j == m - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	}
 	else if(d == 2)
@@ -238,10 +228,9 @@ void Rsqfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 		{
 			for(int j = 0 ; j < m; j++)
 			{
-				fout << g << ' ';
+				fout << g << " \n"[j == m - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	}
 	else if(d == 3)
@@ -252,10 +241,9 @@ void Rsqfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 			for(int j = 0; j < m; j++)
 			{
 				g = distribution(generator);
-				fout << g << ' ';
+				fout << g << " \n"[j == m - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	}
 	else if(d == 4)
@@ -269,10 +257,9 @@ void Rsqfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 			for(int j = 0; j < m; j++)
 			{
 				g = distribution(generator);
-				fout << l + fmod(r - l + 1 + g, (r - l + 1)) << ' ';
+				fout << l + fmod(r - l + 1 + g, (r - l + 1)) << " \n"[j == m - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	}
 	else if(d == 5)
@@ -286,10 +273,9 @@ void Rsqfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 			for(int j = 0; j < m; j++)
 			{
 				g = distribution(generator);
-				fout << l + fmod(r - l + 1 + g, (r - l + 1))<< ' ';
+				fout << l + fmod(r - l + 1 + g, (r - l + 1))<< " \n"[j == m - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	}
 	else if(d == 6)
@@ -302,10 +288,9 @@ void Rsqfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 			for(int j = 0; j < m; j++)
 			{
 				g = distribution(generator);
-				fout << l + fmod(r - l + 1 + g, (r - l + 1)) << ' ';
+				fout << l + fmod(r - l + 1 + g, (r - l + 1)) << " \n"[j == m - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	}
 	else if(d == 9)
@@ -320,10 +305,9 @@ void Rsqfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 			for(int j = 0; j < m; j++)
 			{
 				g = distribution(generator);
-				fout << g << ' ';
+				fout << g << " \n"[j == m - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	}
 }

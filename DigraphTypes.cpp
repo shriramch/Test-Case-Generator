@@ -144,9 +144,8 @@ void Rdvwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 	for(int i = 1; i < n + 1; i++)
 	{
 		t1.time(1);
-		fout << weights[i - 1] << ' ';
+		fout << weights[i - 1] << " \n"[i == n];
 	}
-	fout << '\n';
 	m.clear();
 	int gcount = 0;
 	while(gcount != e)
@@ -353,10 +352,9 @@ void Rvwdag :: generate(int n, Timer &t1, int e, int l, int r)
 	else Distribution :: FillArray(weights, n, l, r, false, t1);
 	for(int i = 0; i < n; i++)
 	{
-		fout << weights[i] << ' ';
+		fout << weights[i] << " \n"[i == n - 1];
 		t1.time(1);
 	}
-	fout << '\n';
 	uniform_int_distribution <int> distribution(1, n);
 	int a[n + 1];
 	for(int i = 1; i < n + 1; i++)

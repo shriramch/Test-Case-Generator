@@ -16,7 +16,7 @@ void Rarray :: generate(int n, int d, Timer &t1, int l, int r)
 		g = distribution(generator);
 		for(int i = 0; i < n; i++)
 		{
-			fout << g << ' ';
+			fout << g << " \n"[i == n - 1];
 			t1.time(1);
 		}
 	}
@@ -25,7 +25,7 @@ void Rarray :: generate(int n, int d, Timer &t1, int l, int r)
 		g = l;
 		for(int i = 0; i < n; i++)
 		{
-			fout << g << ' ';
+			fout << g << " \n"[i == n - 1];
 			t1.time(1);
 		}
 	}
@@ -34,7 +34,7 @@ void Rarray :: generate(int n, int d, Timer &t1, int l, int r)
 		g = r;
 		for(int i = 0; i < n; i++)
 		{
-			fout << g << ' ';
+			fout << g << " \n"[i == n - 1];
 			t1.time(1);
 		}
 	}
@@ -44,7 +44,7 @@ void Rarray :: generate(int n, int d, Timer &t1, int l, int r)
 		for(int i = 0; i < n; i++)
 		{
 			g = distribution(generator);
-			fout << g << ' ';
+			fout << g << " \n"[i == n - 1];
 			t1.time(1);
 		}
 	}
@@ -55,7 +55,7 @@ void Rarray :: generate(int n, int d, Timer &t1, int l, int r)
 		for(int i = 0; i < n; i++)
 		{
 			g = distribution(generator);
-			fout << l + g % (r - l + 1) << ' ';
+			fout << l + g % (r - l + 1) << " \n"[i == n - 1];
 			t1.time(1);
 		}
 	}
@@ -67,7 +67,7 @@ void Rarray :: generate(int n, int d, Timer &t1, int l, int r)
 		for(int i = 0; i < n; i++)
 		{
 			g = distribution(generator);
-			fout << l + g % (r - l + 1) << ' ';
+			fout << l + g % (r - l + 1) << " \n"[i == n - 1];
 			t1.time(1);
 		}
 	}
@@ -81,11 +81,10 @@ void Rarray :: generate(int n, int d, Timer &t1, int l, int r)
 		for(int i = 0; i < n; i++)
 		{
 			g = l + ((int)(distribution(generator))) % (r - l + 1);
-			fout << g << ' ';
+			fout << g << " \n"[i == n - 1];
 			t1.time(1);
 		}
 	}
-	fout << '\n';
 }
 
 // A function that generates array test case files
@@ -142,10 +141,9 @@ void Rdarray :: generate(int n, Timer &t1, int l, int r)
 		if((int)g.size() > t)
 		{
 			t1.time(1);
-			fout << rn << ' ';
+			fout << rn << " \n"[(int)g.size() == n - 1];
 		}
 	}
-	fout << '\n';
 }
 
 // A function that generates dinstinct element array test case arrays
@@ -198,9 +196,8 @@ void Rkey_darray :: generate(int n, Timer &t1, int l, int r, int k)
 	for(auto i : g)
 		gg.push_back(i);
 	shuffle(gg.begin(), gg.end(), default_random_engine(system_clock  :: now().time_since_epoch().count()));
-	for(auto i : gg)
-		fout << i << ' ';
-	fout << '\n';
+	for(int i = 0; i < (int)gg.size(); i++)
+		fout << gg[i] << " \n"[i != n - 1];
 }
 
 // A function that generates a distinct array with given key element test case files
@@ -247,10 +244,9 @@ void Rdiv_array :: generate(int n, Timer &t1, int l, int r, int fact)
 		if((int)g.size() > t)
 		{
 			t1.time(1);
-			fout << rn * fact << ' ';
+			fout << rn * fact << " \n"[(int)g.size() == n - 1];
 		}
 	}
-	fout << '\n';
 }
 
 // A class that generates distinct arrays with numbers divisbile by a key test case files

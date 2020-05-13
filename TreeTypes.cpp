@@ -219,9 +219,8 @@ void Rvwtree :: generate(int n, Timer &t1, int l, int r)
 	for(int i = 1; i < n + 1; i++)
 	{
 		t1.time(1);
-		fout << weights[i - 1] << ' ';
+		fout << weights[i - 1] << " \n"[i == n];
 	}
-	fout << '\n';
 	shuffle(a + 1, a + n + 1, default_random_engine(system_clock  :: now().time_since_epoch().count()));
 	g.clear();
 	for(int i = 2; i < n + 1; i++)

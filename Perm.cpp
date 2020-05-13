@@ -37,12 +37,11 @@ void Rperm :: setCase(string &s, int T, int t, int n, int sz, string &folder_nam
 			fout << times[j] << '\n';
 			generate(times[j], t1);
 			shuffle(g.begin(), g.end(), default_random_engine(system_clock  :: now().time_since_epoch().count()));
-			for(auto k : g)
+			for(int k = 0; k < (int)g.size(); k++)
 			{
-				fout << k << ' ';
+				fout << g[k] << " \n"[k == (int)g.size() - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 		fout.close();
 	}

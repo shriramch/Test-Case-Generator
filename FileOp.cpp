@@ -1,5 +1,4 @@
 # include "FileOp.h"
-# include "numOp.h"
 
 // A function that sets a test case file and a file pointer
 void FileOp :: setFile(string &folder_name, string &s, int t, fstream &fout)

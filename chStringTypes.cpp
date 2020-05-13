@@ -148,9 +148,9 @@ Rchar_array :: Rchar_array()
 // A function that generates a random array of char_strings
 void Rchar_array :: generate(Timer &t1, string s, int m, int n, int v)
 {
-	fout << m << ' ';
+	fout << m;
 	if(v)
-		fout << n;
+		fout << ' ' << n;
 	fout << '\n';
 	vector <vector <int> > chars(m);
 	for(int i = 0; i < m; i++)

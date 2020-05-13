@@ -33,11 +33,10 @@ void Rpolynomial :: generate(int n, Timer &t1, int l, int r)
 			if(d)
 				fout << '\n';
 			else
-				fout << ' ';
+				fout << " \n"[i == n];
 		}
 		t1.time(1);
 	}
-	fout << '\n';
 }
 
 // A function that generates polynomial test case files
@@ -98,11 +97,10 @@ void Rfpolynomial :: generate(int n, Timer &t1, float l, float r)
 			if(d)
 				fout << '\n';
 			else
-				fout << ' ';
+				fout << " \n"[i == n];
 		}
 		t1.time(1);
 	}
-	fout << '\n';
 }
 
 // A function that generates floating point polynomial test case files

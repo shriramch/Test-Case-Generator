@@ -32,10 +32,10 @@ using namespace std :: chrono;
 class Distribution
 {
 	default_random_engine gen;
-	discrete_distribution <int> idist {19, 2, 2, 42, 0, 0, 0, 35, 35, 21};
-	discrete_distribution <int> fdist {19, 2, 2, 42, 35, 21, 35, 0, 0, 21};
-	discrete_distribution <int> indist {19, 2, 2, 49, 0, 0, 0, 0, 0, 49};
-	discrete_distribution <int> fndist {19, 2, 2, 49, 49, 0, 0, 0, 0, 35};
+	discrete_distribution <int> idist {15, 2, 2, 42, 0, 0, 0, 35, 35, 21};
+	discrete_distribution <int> fdist {15, 2, 2, 42, 35, 21, 35, 0, 0, 21};
+	discrete_distribution <int> indist {15, 2, 2, 49, 0, 0, 0, 0, 0, 49};
+	discrete_distribution <int> fndist {15, 2, 2, 49, 49, 0, 0, 0, 0, 35};
 public:
 	Distribution();
 	void setCaseDis(int, int, vector <int>&, int, bool);	

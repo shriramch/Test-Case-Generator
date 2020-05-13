@@ -35,10 +35,9 @@ void Rdensegraph :: generate(int n, Timer &t1, int d, float ro)
 		{
 			for(int j = 0; j < n; j++)
 			{
-				fout << a[i][j] << ' ';
+				fout << a[i][j] << " \n"[j == n - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	else
 		for(int i = 0; i < n; i++)
@@ -118,10 +117,9 @@ void Rdensedgraph :: generate(int n, Timer &t1, int d, float ro)
 		{
 			for(int j = 0; j < n; j++)
 			{
-				fout << a[i][j] << ' ';
+				fout << a[i][j] << " \n"[j == n - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 	else
 		for(int i = 0; i < n; i++)

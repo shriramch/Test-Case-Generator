@@ -20,6 +20,7 @@
 # include "DigraphTypes.h"
 # include "Coordinates.h"
 # include "Polynomial.h"
+# include "Tuple.h"
 
 // A class that generates test cases
 class Generate

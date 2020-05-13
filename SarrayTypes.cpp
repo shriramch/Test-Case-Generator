@@ -110,10 +110,9 @@ void Rsarray :: setCase(string &s, int T, int t, int n, int l, int r, int d, boo
 			sort(g.begin(), g.end());
 			for(int k = 0; k < times[j]; k++)
 			{
-				fout << g[k] << ' ';
+				fout << g[k] << " \n"[i == times[j] - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 		fout.close();
 	}
@@ -171,10 +170,9 @@ void Rsdarray :: setCase(string &s, int T, int t, int n, int l, int r, int sz, s
 			generate(times[j], t1, l, r);
 			for(auto k : g)
 			{
-				fout << k << ' ';
+				fout << k << " \n"[i == times[j] - 1];
 				t1.time(1);
 			}
-			fout << '\n';
 		}
 		fout.close();
 	}
