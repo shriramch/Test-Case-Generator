@@ -102,6 +102,10 @@ LIST OF PRESETS:
     Polynomial Types
     52. polynomial         : polynomial with integer coefficients
     53. fpolynomial        : polynomial with floating point number coefficients
+    
+    Tuple Types
+    101. tuple             : a tuple of integers
+    102. tuple_array       : an array of tuples of integers
 
   NOTE: Floating point numbers by default have a fixed precision of 6 digits after decimal point.
 
