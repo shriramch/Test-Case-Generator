@@ -107,6 +107,10 @@ LIST OF PRESETS:
     101. tuple             : a tuple of integers
     102. tuple_array       : an array of tuples of integers
 
+    Parameter List + Array
+    103. paramarray        : a set of parameters followed by an array
+                             (parameters printed in order of input format given)
+
   NOTE: Floating point numbers by default have a fixed precision of 6 digits after decimal point.
 
 OUTPUT GENERATION:

@@ -4,8 +4,8 @@
 CXX = g++
 PROG = TCG
 CXXFLAGS = -std=c++17 -Wall -g
-OBJS = numOp.o Invalid.o Timer.o FileOp.o Distribution.o IntTypes.o FloatTypes.o ArrayTypes.o FarrayTypes.o SarrayTypes.o Perm.o String.o chStringTypes.o spString.o IntervalTypes.o MatrixTypes.o FmatrixTypes.o TreeTypes.o DenseGraph.o GraphTypes.o DigraphTypes.o Coordinates.o Polynomial.o Tuple.o Generator.o main.o
-HEADER2 = numOp.h Invalid.h Timer.h FileOp.h Distribution.h IntTypes.h FloatTypes.h ArrayTypes.h FarrayTypes.h SarrayTypes.h Perm.h String.h chStringTypes.h spString.h IntervalTypes.h MatrixTypes.h FmatrixTypes.h TreeTypes.h DenseGraph.h GraphTypes.h DigraphTypes.h Coordinates.h Polynomial.h Tuple.h Generator.h
+OBJS = numOp.o Invalid.o Timer.o FileOp.o Distribution.o IntTypes.o FloatTypes.o ArrayTypes.o FarrayTypes.o SarrayTypes.o Perm.o String.o chStringTypes.o spString.o IntervalTypes.o MatrixTypes.o FmatrixTypes.o TreeTypes.o DenseGraph.o GraphTypes.o DigraphTypes.o Coordinates.o Polynomial.o Tuple.o ParamArray.o Generator.o main.o
+HEADER2 = numOp.h Invalid.h Timer.h FileOp.h Distribution.h IntTypes.h FloatTypes.h ArrayTypes.h FarrayTypes.h SarrayTypes.h Perm.h String.h chStringTypes.h spString.h IntervalTypes.h MatrixTypes.h FmatrixTypes.h TreeTypes.h DenseGraph.h GraphTypes.h DigraphTypes.h Coordinates.h Polynomial.h Tuple.h ParamArray.h Generator.h
 HEADER1 = numOp.h Invalid.h Timer.h FileOp.h Distribution.h
 
 $(PROG) : $(OBJS)
@@ -82,6 +82,9 @@ Polynomial.o : $(HEADER1) Polynomial.h
 
 Tuple.o : $(HEADER1) Tuple.h
 	$(CXX) $(CXXFLAGS) -c Tuple.cpp
+
+ParamArray.o : $(HEADER1) ParamArray.h
+	$(CXX) $(CXXFLAGS) -c ParamArray.cpp
 
 Generator.o : $(HEADER2)
 	$(CXX) $(CXXFLAGS) -c Generator.cpp

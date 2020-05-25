@@ -21,6 +21,7 @@
 # include "Coordinates.h"
 # include "Polynomial.h"
 # include "Tuple.h"
+# include "ParamArray.h"
 
 // A class that generates test cases
 class Generate

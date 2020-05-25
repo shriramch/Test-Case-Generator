@@ -112,6 +112,7 @@ void Generate :: initialize()
 	types.insert("fpolynomial");
 	types.insert("tuple");
 	types.insert("tuple_array");
+	types.insert("paramarray");
 	types.insert("1");
 	types.insert("2");
 	types.insert("3");
@@ -167,6 +168,7 @@ void Generate :: initialize()
 	types.insert("53");
 	types.insert("101");
 	types.insert("102");
+	types.insert("103");
 }
 
 // A utility function to check validity of input
@@ -943,7 +945,7 @@ void Generate :: genfunc()
 		int r = giveInt("	Coefficient upper limit: ");
 		int d = giveInt("	Output format (0 for single line, 1 for multiline): ");
 		valid(l, r);
-		valid(d);
+		valid(d, 'i');
 		Rpolynomial R;
 		R.setCase(fname, T, t, n, l, r, sz, d, folder_name);
 	}
@@ -954,7 +956,7 @@ void Generate :: genfunc()
 		float r = giveFloat("	Coefficient upper limit: ");
 		int d = giveInt("	Output format (0 for single line, 1 for multiline): ");
 		valid(l, r);
-		valid(d);
+		valid(d, 'i');
 		Rfpolynomial R;
 		R.setCase(fname, T, t, n, l, r, sz, d, folder_name);
 	}
@@ -983,8 +985,28 @@ void Generate :: genfunc()
 			valid(l[i], r[i]);
 		}
 		int d = giveInt("	Distribution key (-1 for randomized): ");
+		valid(d, 'i');
 		RtupleArray R;
 		R.setCase(fname, T, t, nc, n, l, r, d, sz, folder_name);
+	}
+	else if(ptype == "paramarray" || ptype == "103")
+	{
+		int n = giveInt("	Number of array elements (over all test cases): ");
+		int l = giveInt("	Lower limit: ");
+		int r = giveInt("	Upper limit: ");
+		valid(l, r);
+		int nc = giveInt("	Number of parameters: ");
+		vector <int> pl, pr;
+		for(int i = 0; i < nc; i++)
+		{
+			pl.push_back(giveInt("	Lower limit for term " + numOp :: nts(i + 1) + ": "));
+			pr.push_back(giveInt("	Upper limit for term " + numOp :: nts(i + 1) + ": "));
+			valid(pl[i], pr[i]);
+		}
+		int d = giveInt("	Distribution key (-1 for randomized): ");
+		valid(d, 'i');
+		Rparamarray R;
+		R.setCase(fname, T, t, n, pl, pr, l, r, d, neg, sz, folder_name);
 	}
 	cout << '\n' << '\n' << "Do you want to create output files? (y/n) ";
 	string c;
