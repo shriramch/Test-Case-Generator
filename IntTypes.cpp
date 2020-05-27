@@ -51,7 +51,7 @@ void Rpair :: generate(int l, int r)
 }
 
 // A function that generates pair test case files
-void Rpair :: setCase(string &s, int T, int t, int l, int r, string &folder_name)
+void Rpair :: setCase(string &s, int T, int t, int l, int r, string &folder_name, int d)
 {
 	cout << "Generating pair test files: " << '\n';
 	for(int i = 0; i < T; i++)
@@ -63,7 +63,9 @@ void Rpair :: setCase(string &s, int T, int t, int l, int r, string &folder_name
 		for(int j = 0; j < times; j++)
 		{
 			generate(l, r);
-			fout << a << ' ' << b << '\n';
+			if(d)
+				fout << max(a, b) << ' ' << min(a, b) << '\n';
+			else fout << a << ' ' << b << '\n';
 			t1.time(2);
 		}
 		fout.close();

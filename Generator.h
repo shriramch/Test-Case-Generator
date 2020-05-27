@@ -32,6 +32,7 @@ class Generate
 	bool neg;
 	string folder_name;
 	int giveInt(string);
+	int giveInt(string, int);
 	float giveFloat(string);
 	string giveString(string);
 	void initialize();

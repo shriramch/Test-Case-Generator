@@ -26,7 +26,7 @@ class Rpair
 public:
 	Rpair();
 	void generate(int, int);
-	void setCase(string&, int, int, int, int, string&);
+	void setCase(string&, int, int, int, int, string&, int);
 };
 
 # endif

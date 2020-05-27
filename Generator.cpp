@@ -20,6 +20,30 @@ int Generate :: giveInt(string x)
 	return x1.first;
 }
 
+// A utility function to input range
+int Generate :: giveInt(string x, int val)
+{
+	cout << x;
+	string ss;
+	getline(cin, ss);
+	if(ss == "---")
+	{
+		e1.setCaseError(-1);
+		throw e1;
+	}
+	if(ss == "b")
+		return val;
+	if(ss == "e")
+		return val;
+	pair <int, bool> x1 = numOp :: ctnum(ss);
+	if(!x1.second)
+	{
+		e1.setCaseError(1);
+		throw e1;
+	}
+	return x1.first;
+}
+
 // A utility function to input a valid floating point number
 float Generate :: giveFloat(string x)
 {
@@ -496,9 +520,11 @@ void Generate :: genfunc()
 	{
 		int l = giveInt("	Lower limit: ");
 		int r = giveInt("	Upper limit: ");
+		int d = giveInt("	Fixed order? (1 for n2 <= n1, 0 otherwise): ");
 		valid(l, r);
+		valid(d);
 		Rpair R;
-		R.setCase(fname, T, t, l, r, folder_name);
+		R.setCase(fname, T, t, l, r, folder_name, d);
 	}
 	else if(ptype == "fpair" || ptype == "4")
 	{
@@ -999,8 +1025,8 @@ void Generate :: genfunc()
 		vector <int> pl, pr;
 		for(int i = 0; i < nc; i++)
 		{
-			pl.push_back(giveInt("	Lower limit for term " + numOp :: nts(i + 1) + ": "));
-			pr.push_back(giveInt("	Upper limit for term " + numOp :: nts(i + 1) + ": "));
+			pl.push_back(giveInt("	Lower limit for term " + numOp :: nts(i + 1) + ": ", 1));
+			pr.push_back(giveInt("	Upper limit for term " + numOp :: nts(i + 1) + ": ", n));
 			valid(pl[i], pr[i]);
 		}
 		int d = giveInt("	Distribution key (-1 for randomized): ");
