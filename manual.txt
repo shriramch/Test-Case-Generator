@@ -30,7 +30,7 @@ PRESET KEYWORDS:
       (e) Graph density for dense_graph presets must lie in between 0 and 1 inclusive, or should be -1 for a randomized density.
       (f) dense_graph presets have a size limit of 2500 nodes.
       (g) Any string can not be "---" since this is used as an escape sequence in this application.
-      (h) for parameter lists, giving input as 'b' and 'b' generates parameter in range of size of array.
+      (h) for parameter lists, giving lower and upper limit as '(b', 'b') or (1, -1) generates parameter in range of size of array.
 
 LIST OF PRESETS:
     Integer types
@@ -111,6 +111,7 @@ LIST OF PRESETS:
     Parameter List + Array
     103. paramarray        : a set of parameters followed by an array
                              (parameters printed in order of input format given)
+    104. ptuple            : a set of parameters followed by an array of tuples
 
   NOTE: Floating point numbers by default have a fixed precision of 6 digits after decimal point.
 

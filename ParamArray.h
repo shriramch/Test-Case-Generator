@@ -19,4 +19,18 @@ public:
 	void setCase(string&, int, int, int, vector <int> &, vector <int> &, int, int, int, bool, int, string&);
 	vector <int> setCaseDist(int, int, bool);
 };
+
+class Rptuple
+{
+	int N;
+	int g;
+	fstream fout;
+	vector <int> dist;
+public:
+	Rptuple();
+	void generate(vector <int> &, int, int, int, int, Timer &);
+	void setCase(string&, int, int, int, vector <int> &, vector <int> &, vector <int> &, vector <int> &, int, int, string&);
+	vector <int> setCaseDist(int, int, bool);
+};
+
 # endif

@@ -137,6 +137,7 @@ void Generate :: initialize()
 	types.insert("tuple");
 	types.insert("tuple_array");
 	types.insert("paramarray");
+	types.insert("ptuple");
 	types.insert("1");
 	types.insert("2");
 	types.insert("3");
@@ -193,21 +194,25 @@ void Generate :: initialize()
 	types.insert("101");
 	types.insert("102");
 	types.insert("103");
+	types.insert("104");
 }
 
 // A utility function to check validity of input
 template <class type>
 	void Generate :: valid(type l, type r)
 	{
-		if(l > r)
+		if(!(l == 1 && r == -1))
 		{
-			e1.setCaseError(11);
-			throw e1;
+			if(l > r)
+			{
+				e1.setCaseError(11);
+				throw e1;
+			}
+			if(l <= 0)
+				neg = true;
+			else
+				neg = false;
 		}
-		if(l <= 0)
-			neg = true;
-		else
-			neg = false;
 	}
 
 // A utility function to check validity of input
@@ -1026,13 +1031,37 @@ void Generate :: genfunc()
 		for(int i = 0; i < nc; i++)
 		{
 			pl.push_back(giveInt("	Lower limit for term " + numOp :: nts(i + 1) + ": ", 1));
-			pr.push_back(giveInt("	Upper limit for term " + numOp :: nts(i + 1) + ": ", n));
+			pr.push_back(giveInt("	Upper limit for term " + numOp :: nts(i + 1) + ": ", -1));
 			valid(pl[i], pr[i]);
 		}
 		int d = giveInt("	Distribution key (-1 for randomized): ");
 		valid(d, 'i');
 		Rparamarray R;
 		R.setCase(fname, T, t, n, pl, pr, l, r, d, neg, sz, folder_name);
+	}
+	else if(ptype == "ptuple" || ptype == "104")
+	{
+		int n = giveInt("	Number of array elements (over all test cases): ");
+		int nc = giveInt("	Number of tuple entries in a row: ");
+		vector <int> l(nc), r(nc);
+		for(int i = 0; i < nc; i++)
+		{
+			l[i] = giveInt("	Lower limit for term " + numOp :: nts(i + 1) + ": ", 1);
+			r[i] = giveInt("	Upper limit for term " + numOp :: nts(i + 1) + ": ", -1);
+			valid(l[i], r[i]);
+		}
+		nc = giveInt("	Number of parameters: ");
+		vector <int> pl, pr;
+		for(int i = 0; i < nc; i++)
+		{
+			pl.push_back(giveInt("	Lower limit for term " + numOp :: nts(i + 1) + ": ", 1));
+			pr.push_back(giveInt("	Upper limit for term " + numOp :: nts(i + 1) + ": ", -1));
+			valid(pl[i], pr[i]);
+		}
+		int d = giveInt("	Distribution key (-1 for randomized): ");
+		valid(d, 'i');
+		Rptuple R;
+		R.setCase(fname, T, t, n, pl, pr, l, r, d, sz, folder_name);
 	}
 	cout << '\n' << '\n' << "Do you want to create output files? (y/n) ";
 	string c;
