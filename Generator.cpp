@@ -500,7 +500,7 @@ void Generate :: genfunc()
 	string fname = giveString("	Test file name prefix: ");
 	folder_name = "testfiles_" + fname;
 	ifolder_name = folder_name;
-	folder_name += "/input/";
+	folder_name += "/input";
 	const char *comm1 = ifolder_name.c_str();
 	mkdir(comm1, 0777);
 	comm1 = folder_name.c_str();
