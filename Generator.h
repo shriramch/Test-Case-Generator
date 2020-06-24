@@ -30,7 +30,7 @@ class Generate
 	set <string> types;
 	vector <int> random;
 	bool neg;
-	string folder_name;
+	string folder_name, ifolder_name;
 	int giveInt(string);
 	int giveInt(string, int);
 	float giveFloat(string);

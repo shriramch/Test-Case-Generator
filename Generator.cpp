@@ -456,7 +456,7 @@ void Generate :: GenOutput(string fname, string tt)
 	f2.close();
 	string ifile = fname;
 	string ofile = fname + "_op";
-	string ofolder = "./" + folder_name + "/" + "output_" + fname;
+	string ofolder = "./" + ifolder_name + "/" + "output";
 	const char *comm1 = ofolder.c_str();
 	mkdir(comm1, 0777);
 	cout << "Generating output files." << '\n';
@@ -499,7 +499,11 @@ void Generate :: genfunc()
 	}
 	string fname = giveString("	Test file name prefix: ");
 	folder_name = "testfiles_" + fname;
-	const char *comm1 = folder_name.c_str();
+	ifolder_name = folder_name;
+	folder_name += "/input/";
+	const char *comm1 = ifolder_name.c_str();
+	mkdir(comm1, 0777);
+	comm1 = folder_name.c_str();
 	mkdir(comm1, 0777);
 	int T = giveInt("	Number of test files: ");
 	int t = giveInt("	Maximum number of tests per file: ");
