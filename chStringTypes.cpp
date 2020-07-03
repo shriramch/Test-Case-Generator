@@ -127,7 +127,7 @@ void Rchar_pair :: setCase(string &s, int T, int t, int n, string S, int v, int 
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
-		Timer t1(2 * tcnt);
+		Timer t1(4 * tcnt);
 		for(int j = 0; j < N; j++)
 		{
 			if(v)
