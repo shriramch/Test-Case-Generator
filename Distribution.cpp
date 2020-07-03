@@ -138,7 +138,8 @@ void Distribution :: FillArray(vector <int> &values, int n, int l, int r, bool n
 		}
 		else if(d == 7)
 		{
-			int p = rand() % 101;
+			uniform_real_distribution <float> dp(0, 1);
+			float p = dp(gen) * 100.0;
 			binomial_distribution <int> distribution((l + r) / 2, p / 100.0);
 			for(int i = 0; i < n; i++)
 			{

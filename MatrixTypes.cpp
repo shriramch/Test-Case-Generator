@@ -62,7 +62,8 @@ void Rmatrix :: generate(int n, int m, int d, Timer &t1, int l, int r)
 	}
 	else if(d == 7)
 	{
-		int p = rand() % 101;
+		uniform_real_distribution <float> dp(0, 1);
+		float p = dp(generator) * 100.0;
 		binomial_distribution <int> distribution((l + r) / 2, p / 100.0);
 		for(int i = 0; i < n; i++)
 		{
@@ -78,7 +79,8 @@ void Rmatrix :: generate(int n, int m, int d, Timer &t1, int l, int r)
 	{
 
 		uniform_real_distribution <float> d1(l, r);
-		poisson_distribution <int> distribution(d);
+		float lam = d1(generator);
+		poisson_distribution <int> distribution(lam);
 		for(int i = 0; i < n; i++)
 		{
 			for(int j = 0; j < m; j++)
@@ -228,7 +230,8 @@ void Rsqmatrix :: generate(int n, int m, int d, Timer &t1, int l, int r)
 	}
 	else if(d == 7)
 	{
-		int p = rand() % 101;
+		uniform_real_distribution <float> dp(0, 1);
+		float p = dp(generator) * 100.0;
 		binomial_distribution <int> distribution((l + r) / 2, p / 100.0);
 		for(int i = 0; i < n; i++)
 		{
