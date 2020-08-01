@@ -91,13 +91,15 @@ void Rarray :: generate(int n, int d, Timer &t1, int l, int r)
 // A function that generates array test case files
 void Rarray :: setCase(string &s, int T, int t, int n, int l, int r, int d, bool neg, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating array test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
@@ -150,13 +152,15 @@ void Rdarray :: generate(int n, Timer &t1, int l, int r)
 // A function that generates dinstinct element array test case arrays
 void Rdarray :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating darray test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
@@ -204,13 +208,15 @@ void Rkey_darray :: generate(int n, Timer &t1, int l, int r, int k)
 // A function that generates a distinct array with given key element test case files
 void Rkey_darray :: setCase(string &s, int T, int t, int n, int l, int r, int k, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating key_darray test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
@@ -253,13 +259,15 @@ void Rdiv_array :: generate(int n, Timer &t1, int l, int r, int fact)
 // A class that generates distinct arrays with numbers divisbile by a key test case files
 void Rdiv_array :: setCase(string &s, int T, int t, int n, int l, int r, int fact, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating div_array test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];

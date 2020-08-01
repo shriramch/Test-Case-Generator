@@ -35,13 +35,15 @@ void Rgraph :: generate(int n, Timer &t1, int e)
 // A function that generates graph test case files
 void Rgraph :: setCase(string &s, int T, int t, int n, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating graph test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		ec.clear();
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
@@ -102,13 +104,15 @@ void Rwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 // A function that generated weighted graph test case files
 void Rwgraph :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating wgraph test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		ec.clear();
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
@@ -174,13 +178,15 @@ void Rvwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 // A function that generated weighted graph test case files
 void Rvwgraph :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating vwgraph test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		ec.clear();
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
@@ -255,13 +261,15 @@ void Rconngraph :: generate(int n, Timer &t1, int e)
 // A function that generates connected graph test case files
 void Rconngraph :: setCase(string &s, int T, int t, int n, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating conn_graph test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		ec.clear();
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
@@ -340,13 +348,15 @@ void Rconnwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 // A function that generates connected weighted graph test case files
 void Rconnwgraph :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating conn_wgraph test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		ec.clear();
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
@@ -430,13 +440,15 @@ void Rconnvwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 // A function that generates connected vertex weighted graph test case files
 void Rconnvwgraph :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating conn_vwgraph test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		ec.clear();
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
@@ -512,13 +524,15 @@ void Rdisgraph :: generate(int n, vector <pair <int, int> > &inter, Timer &t1, v
 // A function that generates disconnected graph test case files
 void Rdisgraph :: setCase(string &s, int T, int t, int n, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating disgraph test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		vector <vector <pair <int, int> > > inter(N);
 		vector <vector <int> > ec(N); 
@@ -614,12 +628,14 @@ void Rdiswgraph :: generate(int n, vector <pair <int, int> > &inter, Timer &t1, 
 // A function that generates disconnected edge-weighted graph test case files
 void Rdiswgraph :: setCase(string &s, int T, int t, int n, int wl, int wr, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating diswgraph test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
+		if(pt)
 		fout << N << '\n';
 		int tcnt = 0;
 		vector <vector <pair <int, int> > > inter(N);
@@ -720,12 +736,14 @@ void Rdisvwgraph :: generate(int n, vector <pair <int, int> > &inter, Timer &t1,
 // A function that generates disconnected vertex weighted graph test case files
 void Rdisvwgraph :: setCase(string &s, int T, int t, int n, int wl, int wr, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating disvwgraph test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
+		if(pt)
 		fout << N << '\n';
 		int tcnt = 0;
 		vector <vector <pair <int, int> > > inter(N);

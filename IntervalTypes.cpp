@@ -19,12 +19,14 @@ void Rintervals :: generate(int l, int r)
 // A function that generates interval test case files
 void Rintervals :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating interval test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
-		fout << times.size() << '\n';
+		if(pt)
+			fout << times.size() << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < (int)times.size(); j++)
 			tcnt += times[j];
@@ -82,13 +84,15 @@ void Ruintervals :: generate(int n, Timer &t1, int l, int r)
 // A function that generates unique interval test case files
 void Ruintervals :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating uintervals test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
@@ -151,13 +155,15 @@ void Rpartition :: generate(int n, Timer &t1, int l, int r)
 // A function that generates partition test case files
 void Rpartition :: setCase(string &s, int T, int t, int l, int r, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating partition test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, (r - l) / 11, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];

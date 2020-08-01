@@ -107,13 +107,15 @@ void Rfarray :: generate(int n, int d, Timer &t1, float l, float r)
 // A function that generates floating point array test case files
 void Rfarray :: setCase(string &s, int T, int t, int n, float l, float r, int d, bool neg, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating farray test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
@@ -246,13 +248,15 @@ void Rsfarray :: generate(int n, int d, Timer &t1, float l, float r)
 // A function that generates sorted floating point array test case files 
 void Rsfarray :: setCase(string &s, int T, int t, int n, float l, float r, int d, bool neg, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating sfarray test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];

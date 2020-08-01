@@ -109,13 +109,15 @@ void Rcoordinates :: generate(int n, int d, Timer &t1, int l1, int r1, int l2, i
 // A function that generates coordinate test case files
 void Rcoordinates :: setCase(string &s, int T, int t, int n, int l1, int r1, int l2, int r2, int d, bool neg, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating coordinate test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
@@ -178,13 +180,15 @@ void Rucoordinates :: generate(int n, Timer &t1, int l1, int r1, int l2, int r2)
 // A function that generates unique coordinate test case files
 void Rucoordinates :: setCase(string &s, int T, int t, int n, int l1, int r1, int l2, int r2, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating ucoordinates test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];

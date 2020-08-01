@@ -91,13 +91,15 @@ void Rsarray :: generate(int n, int d, Timer &t1, int l, int r)
 // A function that generates sorted array test case files
 void Rsarray :: setCase(string &s, int T, int t, int n, int l, int r, int d, bool neg, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating sarray test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
@@ -153,13 +155,15 @@ void Rsdarray :: generate(int n, Timer &t1, int l, int r)
 // A function that generates sorted distinct elements test case files
 void Rsdarray :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating sdarray test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];

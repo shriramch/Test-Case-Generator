@@ -17,12 +17,14 @@ void Rint :: generate(int l, int r)
 // A function that generates integer test case files
 void Rint :: setCase(string &s, int T, int t, int l, int r, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating int test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		int times = numOp :: giveRint(t);
-		fout << times << '\n';
+		if(pt)
+			fout << times << '\n';
 		Timer t1(times);
 		for(int j = 0; j < times; j++)
 		{
@@ -53,12 +55,14 @@ void Rpair :: generate(int l, int r)
 // A function that generates pair test case files
 void Rpair :: setCase(string &s, int T, int t, int l, int r, string &folder_name, int d)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating pair test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		int times = numOp :: giveRint(t);
-		fout << times << '\n';
+		if(pt)
+			fout << times << '\n';
 		Timer t1(2 * times);
 		for(int j = 0; j < times; j++)
 		{

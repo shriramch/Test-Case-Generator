@@ -26,13 +26,15 @@ void Rlint :: generate(int n, Timer &t1)
 // A function that generates long integer test case files
 void Rlint :: setCase(string &s, int T, int t, int n, int v, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating lint test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
@@ -97,13 +99,15 @@ void Rrbseq :: generate(int n, Timer &t1)
 // A function that generates random bracket sequence test case files
 void Rrbseq :: setCase(string &s, int T, int t, int n, int v, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating rbseq test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 		{

@@ -55,13 +55,15 @@ void Rdensegraph :: generate(int n, Timer &t1, int d, float ro)
 // A function that generates random dense graph test case files
 void Rdensegraph :: setCase(string &s, int T, int t, int n, float ro, int d, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating dense_graph test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j] * times[j];
@@ -136,13 +138,15 @@ void Rdensedgraph :: generate(int n, Timer &t1, int d, float ro)
 // A function that generates random dense digraph test case files
 void Rdensedgraph :: setCase(string &s, int T, int t, int n, float ro, int d, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating dense_dgraph test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j] * times[j];

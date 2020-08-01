@@ -21,13 +21,15 @@ void Rperm :: generate(int n, Timer &t1)
 // A function that generates permutation test case files
 void Rperm :: setCase(string &s, int T, int t, int n, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating perm test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];

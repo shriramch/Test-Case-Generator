@@ -43,13 +43,15 @@ void Rpolynomial :: generate(int n, Timer &t1, int l, int r)
 void Rpolynomial :: setCase(string &s, int T, int t, int n, int l, int r, int sz, int D, string &folder_name)
 {
 	d = D;
+	int pt = FileOp :: printT(t);
 	cout << "Generating polynomial test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += (times[j] + 1);
@@ -107,6 +109,7 @@ void Rfpolynomial :: generate(int n, Timer &t1, float l, float r)
 void Rfpolynomial :: setCase(string &s, int T, int t, int n, float l, float r, int sz, int D, string &folder_name)
 {
 	d = D;
+	int pt = FileOp :: printT(t);
 	FileOp :: fixOutprecision(fout);
 	cout << "Generating fpolynomial test files: " << '\n';
 	for(int i = 0; i < T; i++)
@@ -114,7 +117,8 @@ void Rfpolynomial :: setCase(string &s, int T, int t, int n, float l, float r, i
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += (times[j] + 1);

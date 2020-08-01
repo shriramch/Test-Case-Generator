@@ -112,6 +112,9 @@ LIST OF PRESETS:
     103. paramarray        : a set of parameters followed by an array
                              (parameters printed in order of input format given)
     104. ptuple            : a set of parameters followed by an array of tuples
+    
+    Bounded Sum Intgere List
+    111. lsumint           : list of integers whose sum is bounded above by an integer.
 
   NOTE: Floating point numbers by default have a fixed precision of 6 digits after decimal point.
 

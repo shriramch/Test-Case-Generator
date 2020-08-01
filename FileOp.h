@@ -34,6 +34,7 @@ class FileOp
 public:
 	static void setFile(string &, string &, int, fstream &);
 	static void fixOutprecision(fstream &);
+	static int printT(int);
 };
 
 # endif

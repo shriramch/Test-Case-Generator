@@ -104,13 +104,15 @@ void Rparamarray :: generate(int n, int d, Timer &t1, int l, int r, vector <int>
 // A function that generates paramater set + array test case files
 void Rparamarray :: setCase(string &s, int T, int t, int n, vector <int> &pl, vector <int> &pr, int l, int r, int d, bool neg, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating paramarray test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
@@ -230,6 +232,7 @@ void Rptuple :: generate(vector <int> &v, int n, int d, int l, int r, Timer &t1)
 // A function that generates paramater set + tuple array test case files
 void Rptuple :: setCase(string &s, int T, int t, int n, vector <int> &pl, vector <int> &pr, vector <int> &l, vector <int> &r, int d, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	default_random_engine generator(system_clock :: now().time_since_epoch().count());
 	cout << "Generating ptuple test files: " << '\n';
 	for(int i = 0; i < T; i++)
@@ -237,7 +240,8 @@ void Rptuple :: setCase(string &s, int T, int t, int n, vector <int> &pl, vector
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += 2 * (int)l.size() * times[j];

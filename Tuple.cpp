@@ -22,12 +22,14 @@ void Rtuple :: generate(int nc, vector <int> &l, vector <int> &r, Timer &t1)
 // A function that generates tuple test case files
 void Rtuple :: setCase(string &s, int T, int t, int nc, vector <int> &l, vector <int> &r, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating tuple test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		int times = numOp :: giveRint(t);
-		fout << times << '\n';
+		if(pt)
+			fout << times << '\n';
 		int tcnt = nc * times;
 		Timer t1(tcnt);
 		for(int j = 0; j < times; j++)
@@ -127,12 +129,14 @@ void RtupleArray :: generate(vector <int> &res, int n, int d, Timer &t1, int l, 
 // A function that generates random tuple test case files
 void RtupleArray :: setCase(string &s, int T, int t, int nc, int n, vector <int> &l, vector <int> &r, int d, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating tuple_array test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
-		fout << times.size() << '\n';
+		if(pt)
+			fout << times.size() << '\n';
 		int tcnt = 0;
 		vector <vector <int> > res(nc);
 		for(int j = 0; j < (int)times.size(); j++)

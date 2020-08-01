@@ -17,13 +17,15 @@ void Rfloat :: generate(float l, float r)
 // A function that generates floating point test case files
 void Rfloat :: setCase(string &s, int T, int t, float l, float r, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	FileOp :: fixOutprecision(fout);
 	cout << "Generating float test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		int times = numOp :: giveRint(t);
-		fout << times << '\n';
+		if(pt)
+			fout << times << '\n';
 		Timer t1(times);
 		for(int j = 0; j < times; j++)
 		{
@@ -54,13 +56,15 @@ void Rfpair :: generate(float l, float r)
 // A function that generates floating point pair test case files
 void Rfpair :: setCase(string &s, int T, int t, float l, float r, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	FileOp :: fixOutprecision(fout);
 	cout << "Generating fpair test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		int times = numOp :: giveRint(t);
-		fout << times << '\n';
+		if(pt)
+			fout << times << '\n';
 		Timer t1(2 * times);
 		for(int j = 0; j < times; j++)
 		{

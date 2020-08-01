@@ -130,11 +130,13 @@ void Rfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 // A function that generates a floating point matrix test case files
 void Rfmatrix :: setCase(string &s, int T, int t, int m1, int m2, int n, float l, float r, int d, bool neg, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating fmatrix test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
+		if(pt)
 		fout << times.size() << '\n';
 		int tcnt = 0;
 		N.clear();
@@ -315,11 +317,13 @@ void Rsqfmatrix :: generate(int n, int m, int d, Timer &t1, float l, float r)
 // A function that generates floating point square matrix test case files
 void Rsqfmatrix :: setCase(string &s, int T, int t, int n, float l, float r, int d, bool neg, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating sqfmatrix test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
+		if(pt)
 		fout << times.size() << '\n';
 		int tcnt = 0;
 		N.clear();

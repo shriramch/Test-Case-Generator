@@ -22,6 +22,7 @@
 # include "Polynomial.h"
 # include "Tuple.h"
 # include "ParamArray.h"
+# include "lSumInt.h"
 
 // A class that generates test cases
 class Generate

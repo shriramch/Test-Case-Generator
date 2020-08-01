@@ -142,6 +142,15 @@ signed main()
 							break;
 					}
 				}
+				catch(int &i)
+				{
+					switch(i)
+					{
+						case 111:
+							cout << "Invalid binary input. Aborted." << '\n';
+							break;
+					}
+				}
 			}
 		}
 		// clear screen

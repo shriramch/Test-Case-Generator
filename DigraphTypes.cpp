@@ -33,13 +33,15 @@ void Rdgraph :: generate(int n, Timer &t1, int e)
 // A function that generates digraph test case files
 void Rdgraph :: setCase(string &s, int T, int t, int n, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating dgraph test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		ec.clear();
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
@@ -98,13 +100,15 @@ void Rdwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 // A function that generates random weighted digraph test case files
 void Rdwgraph :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating dwgraph test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		ec.clear();
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
@@ -168,13 +172,15 @@ void Rdvwgraph :: generate(int n, Timer &t1, int e, int l, int r)
 // A function that generates vertex weighted digraph test case files
 void Rdvwgraph :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating dvwgraph test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		ec.clear();
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
@@ -235,13 +241,15 @@ void Rdag :: generate(int n, Timer &t1, int e)
 // A function that generates dag test case files
 void Rdag :: setCase(string &s, int T, int t, int n, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating dag test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		ec.clear();
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
@@ -308,13 +316,15 @@ void Rwdag :: generate(int n, Timer &t1, int e, int l, int r)
 // A function that generates weighted dag test case files
 void Rwdag :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating wdag test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		ec.clear();
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
@@ -384,13 +394,15 @@ void Rvwdag :: generate(int n, Timer &t1, int e, int l, int r)
 // A function that generates vertex weighted dag test case files
 void Rvwdag :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating vwdag test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		ec.clear();
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)

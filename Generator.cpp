@@ -138,6 +138,7 @@ void Generate :: initialize()
 	types.insert("tuple_array");
 	types.insert("paramarray");
 	types.insert("ptuple");
+	types.insert("lsumint");
 	types.insert("1");
 	types.insert("2");
 	types.insert("3");
@@ -195,6 +196,7 @@ void Generate :: initialize()
 	types.insert("102");
 	types.insert("103");
 	types.insert("104");
+	types.insert("111");
 }
 
 // A utility function to check validity of input
@@ -1066,6 +1068,15 @@ void Generate :: genfunc()
 		valid(d, 'i');
 		Rptuple R;
 		R.setCase(fname, T, t, n, pl, pr, l, r, d, sz, folder_name);
+	}
+	else if(ptype == "lsumint" || ptype == "111")
+	{
+		int n = giveInt("	Sum of integers (over all test cases): ");
+		int l = giveInt("	Lower limit: ");
+		int r = giveInt("	Upper limit: ");
+		valid(l, r);
+		Rlsumint R;
+		R.setCase(fname, T, t, n, l, r, folder_name);
 	}
 	cout << '\n' << '\n' << "Do you want to create output files? (y/n) ";
 	string c;

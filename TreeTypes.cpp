@@ -42,13 +42,15 @@ void Rtree :: generate(int n, Timer &t1)
 // A function that generates tree test case files
 void Rtree :: setCase(string &s, int T, int t, int n, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating tree test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
@@ -105,13 +107,15 @@ void Rrtree :: generate(int n, Timer &t1)
 // A function that generates rooted tree test case files
 void Rrtree :: setCase(string &s, int T, int t, int n, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating rtree test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
@@ -173,13 +177,15 @@ void Rwtree :: generate(int n, Timer &t1, int l, int r)
 // A function that generates weighted tree test case files
 void Rwtree :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating wtree test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
@@ -247,13 +253,15 @@ void Rvwtree :: generate(int n, Timer &t1, int l, int r)
 // A function that generates vertex weighted tree test case files
 void Rvwtree :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating vwtree test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
@@ -315,13 +323,15 @@ void Rrwtree :: generate(int n, Timer &t1, int l, int r)
 // A function that generates rooted weighted tree test case files
 void Rrwtree :: setCase(string &s, int T, int t, int n, int l, int r, int sz, string &folder_name)
 {
+	int pt = FileOp :: printT(t);
 	cout << "Generating wrtree test files: " << '\n';
 	for(int i = 0; i < T; i++)
 	{
 		FileOp :: setFile(folder_name, s, i, fout);
 		vector <int> times = numOp :: giveRints(t, n, sz);
 		N = times.size();
-		fout << N << '\n';
+		if(pt)
+			fout << N << '\n';
 		int tcnt = 0;
 		for(int j = 0; j < N; j++)
 			tcnt += times[j];
